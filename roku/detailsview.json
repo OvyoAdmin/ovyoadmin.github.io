@@ -1,0 +1,87 @@
+{
+  "interface": {
+    "@notify": "isViewed,bookmark",
+    "isViewed": false,
+    "bookmark": "00:20"
+  },
+  "layout": {
+    "type": "OvyLayoutGroup",
+    "fields": {
+      "itemSpacings": [
+        32
+      ],
+      "controller": "@args/controller",
+      "content": "@args/content",
+      "restApi": "@api/details.getDetailed"
+    },
+    "children": [
+      {
+        "type": "Group",
+        "children": [
+          {
+            "type": "Poster",
+            "fields": {
+              "id": "detailPoster",
+              "width": 240,
+              "height": 320,
+              "loadWidth": 240,
+              "loadHeight": 320,
+              "loadDisplayMode": "scaleToFill",
+              "uri": "@content/details.image.fhd",
+              "translation": [
+                60,
+                0
+              ]
+            }
+          },
+          {
+            "type": "Label",
+            "fields": {
+              "@res": "@style/secondaryButtonLabel",
+              "width": 240,
+              "id": "title",
+              "text": "@content/details.title",
+              "translation": [
+                60,
+                328
+              ],
+              "wrap": true,
+              "maxLines": 4
+            }
+          },
+          {
+            "type": "Label",
+            "fields": {
+              "width": 740,
+              "id": "description",
+              "text": "@content/details.description",
+              "translation": [
+                600,
+                150
+              ],
+              "wrap": true,
+              "maxLines": 4
+            }
+          }
+        ]
+      },
+      {
+        "type": "OvyMarkupGrid",
+        "fields": {
+          "itemComponentName": "@layout/itemPosterWithMetadata",
+          "itemSize": [
+            320,
+            240
+          ],
+          "numColumns": 4,
+          "restApi": "@api/details.rowsContent",
+          "contentHandler": "DetailsRowsContentHandler",
+          "loader": "@layout/rowLoadingSpinner"
+        },
+        "observers": {
+          "itemSelected": "@view/playEpisode(content[i]),@track/onSelected"
+        }
+      }
+    ]
+  }
+}

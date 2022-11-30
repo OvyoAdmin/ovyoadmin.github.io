@@ -1,0 +1,195 @@
+{
+	"logger": {
+		"moduleMap": {
+			"RootScene": "Scene",
+			"Logger": "Log",
+			"NetworkMediator": "Network",
+			"InternalNetworkMediator": "Network",
+			"InputQueueHandler": "Network",
+			"TaskPoolHandler": "Network",
+			"TaskServiceHandler": "Network",
+			"TransferPoolHandler": "Network",
+			"RootSceneExt": "Scene",
+			"HelloWorld": "Main"
+		}
+	},
+	"main": {
+		"settings": {
+			"scene": "RootSceneExt",
+			"viewBuilder": "OvyViewBuilder"
+		}
+	},
+	"resources": {
+		"colors": {
+			"red": "#FF0000",
+			"white": "#FFFFFF",
+			"black": "#000000",
+			"blue": "#0000FF",
+			"navy": "#000080",
+			"yellow": "#FFFF00",
+			"fuchsia": "#FF00FF",
+			"maroon": "#800000",
+			"teal": "#008080",
+			"aqua": "#00FFFF",
+			"olive": "#808000"
+		},
+		"fonts": {
+			"RobotoBold": {
+				"uri": "pkg:/fonts/Roboto/Roboto-Bold.ttf",
+				"size": 103
+			},
+			"RobotoBlack": {
+				"uri": "pkg:/fonts/Roboto/Roboto-Black.ttf",
+				"size": 103
+			},
+			"RobotoLight": {
+				"uri": "pkg:/fonts/Roboto/Roboto-Light.ttf",
+				"size": 103
+			},
+			"RobotoMedium": {
+				"uri": "pkg:/fonts/Roboto/Roboto-Medium.ttf",
+				"size": 103
+			},
+			"RobotoMediumNormal": "@RobotoMedium",
+			"RobotoMediumWeight200": "@RobotoMediumCustom"
+		},
+		"images": {
+			"channelPosterFHD": "pkg:/images/channel-poster_fhd.png",
+			"channelPosterHD": "pkg:/images/channel-poster_hd.png"
+		},
+		"layouts": {
+			"posterWithMetadata": {
+				"layout": {
+					"layoutGroup": {
+						"attrs": {
+							"layoutDirection": "horiz",
+							"itemSpacings": [
+								16,
+								8,
+								0
+							],
+							"translation": [
+								0,
+								0
+							]
+						},
+						"poster": {
+							"attrs": {
+								"id": "itemPoster",
+								"width": 240,
+								"height": 240,
+								"loadWidth": 240,
+								"loadHeight": 240,
+								"loadDisplayMode": "scaleToFill"
+							}
+						},
+						"label": {
+							"attrs": "@styles/secondarButtonLabel",
+							"width": 120,
+							"id": "subtitle",
+							"text": "Metadata 2"
+						}
+					}
+				}
+			},
+			"itemPosterWithMetadata": {
+				"layoutGroup": {
+					"attrs": {
+						"layoutDirection": "horiz",
+						"itemSpacings": [
+							16,
+							8,
+							0
+						],
+						"translation": [
+							0,
+							0
+						]
+					},
+					"poster": {
+						"attrs": {
+							"id": "itemPoster",
+							"width": 240,
+							"height": 240,
+							"loadWidth": 240,
+							"loadHeight": 240,
+							"loadDisplayMode": "scaleToFill"
+						}
+					},
+					"label": {
+						"attrs": "@styles/secondarButtonLabel",
+						"width": 120,
+						"id": "subtitle",
+						"text": "Metadata 2"
+					}
+				}
+			}
+		},
+		"styles": {
+			"contentPoster": {
+				"width": 240,
+				"height": 240,
+				"loadWidth": 240,
+				"loadHeight": 240,
+				"loadDisplayMode": "scaleToFill"
+			},
+			"secondaryButtonLabel": {
+				"lineSpacing": 0,
+				"height": 24,
+				"font": "@fonts/h2",
+				"horizAlign": "left",
+				"vertAlign": "center"
+			}
+		}
+	},
+	"api": {
+		"analytics": {
+			"ga": {}
+		},
+		"auth": {
+			"idm": {
+				"login": {
+					"uri": "http://httpbin.org/delay/3",
+					"method": "GET",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"username": "",
+						"password": ""
+					}
+				}
+			}
+		},
+		"backstage": {},
+		"details": {
+			"getDetailed": {}
+		}
+	},
+	"views": {
+		"details": {},
+		"home": {},
+		"users": {
+			"users": [
+				{
+					"name": "John from brancd",
+					"age": 21,
+					"language": [
+						"JavaScript",
+						"PHP",
+						"Python"
+					]
+				},
+				{
+					"name": "Smith2",
+					"age": 25,
+					"language": [
+						"PHP",
+						"Go",
+						"JavaScript"
+					]
+				}
+			]
+		}
+	}
+}
