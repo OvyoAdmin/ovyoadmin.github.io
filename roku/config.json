@@ -1,195 +1,398 @@
 {
-	"logger": {
-		"moduleMap": {
-			"RootScene": "Scene",
-			"Logger": "Log",
-			"NetworkMediator": "Network",
-			"InternalNetworkMediator": "Network",
-			"InputQueueHandler": "Network",
-			"TaskPoolHandler": "Network",
-			"TaskServiceHandler": "Network",
-			"TransferPoolHandler": "Network",
-			"RootSceneExt": "Scene",
-			"HelloWorld": "Main"
-		}
-	},
 	"main": {
-		"settings": {
-			"scene": "RootSceneExt",
-			"viewBuilder": "OvyViewBuilder"
-		}
+	  "settings": {
+		"languageCode": "en",
+		"landingPage": "@view/home"
+	  }
 	},
 	"resources": {
-		"colors": {
-			"red": "#FF0000",
-			"white": "#FFFFFF",
-			"black": "#000000",
-			"blue": "#0000FF",
-			"navy": "#000080",
-			"yellow": "#FFFF00",
-			"fuchsia": "#FF00FF",
-			"maroon": "#800000",
-			"teal": "#008080",
-			"aqua": "#00FFFF",
-			"olive": "#808000"
+	  "colors": {
+		"red": "#FF0000",
+		"white": "#FFFFFF",
+		"black": "#000000",
+		"blue": "#0000FF",
+		"navy": "#000080",
+		"yellow": "#FFFF00",
+		"fuchsia": "#FF00FF",
+		"maroon": "#800000",
+		"teal": "#008080",
+		"aqua": "#00FFFF",
+		"olive": "#808000"
+	  },
+	  "fonts": {
+		"RobotoBold": {
+		  "uri": "pkg:/fonts/Roboto/Roboto-Bold.ttf",
+		  "size": 103
 		},
-		"fonts": {
-			"RobotoBold": {
-				"uri": "pkg:/fonts/Roboto/Roboto-Bold.ttf",
-				"size": 103
-			},
-			"RobotoBlack": {
-				"uri": "pkg:/fonts/Roboto/Roboto-Black.ttf",
-				"size": 103
-			},
-			"RobotoLight": {
-				"uri": "pkg:/fonts/Roboto/Roboto-Light.ttf",
-				"size": 103
-			},
-			"RobotoMedium": {
-				"uri": "pkg:/fonts/Roboto/Roboto-Medium.ttf",
-				"size": 103
-			},
-			"RobotoMediumNormal": "@RobotoMedium",
-			"RobotoMediumWeight200": "@RobotoMediumCustom"
+		"RobotoBlack": {
+		  "uri": "pkg:/fonts/Roboto/Roboto-Black.ttf",
+		  "size": 103
 		},
-		"images": {
-			"channelPosterFHD": "pkg:/images/channel-poster_fhd.png",
-			"channelPosterHD": "pkg:/images/channel-poster_hd.png"
+		"RobotoLight": {
+		  "uri": "pkg:/fonts/Roboto/Roboto-Light.ttf",
+		  "size": 103
 		},
-		"layouts": {
-			"posterWithMetadata": {
-				"layout": {
-					"layoutGroup": {
-						"attrs": {
-							"layoutDirection": "horiz",
-							"itemSpacings": [
-								16,
-								8,
-								0
-							],
-							"translation": [
-								0,
-								0
-							]
-						},
-						"poster": {
-							"attrs": {
-								"id": "itemPoster",
-								"width": 240,
-								"height": 240,
-								"loadWidth": 240,
-								"loadHeight": 240,
-								"loadDisplayMode": "scaleToFill"
-							}
-						},
-						"label": {
-							"attrs": "@styles/secondarButtonLabel",
-							"width": 120,
-							"id": "subtitle",
-							"text": "Metadata 2"
-						}
-					}
-				}
-			},
-			"itemPosterWithMetadata": {
-				"layoutGroup": {
-					"attrs": {
-						"layoutDirection": "horiz",
-						"itemSpacings": [
-							16,
-							8,
-							0
-						],
-						"translation": [
-							0,
-							0
-						]
-					},
-					"poster": {
-						"attrs": {
-							"id": "itemPoster",
-							"width": 240,
-							"height": 240,
-							"loadWidth": 240,
-							"loadHeight": 240,
-							"loadDisplayMode": "scaleToFill"
-						}
-					},
-					"label": {
-						"attrs": "@styles/secondarButtonLabel",
-						"width": 120,
-						"id": "subtitle",
-						"text": "Metadata 2"
-					}
-				}
-			}
+		"RobotoMedium": {
+		  "uri": "pkg:/fonts/Roboto/Roboto-Medium.ttf",
+		  "size": 103
 		},
-		"styles": {
-			"contentPoster": {
-				"width": 240,
-				"height": 240,
-				"loadWidth": 240,
-				"loadHeight": 240,
-				"loadDisplayMode": "scaleToFill"
-			},
-			"secondaryButtonLabel": {
-				"lineSpacing": 0,
-				"height": 24,
-				"font": "@fonts/h2",
-				"horizAlign": "left",
-				"vertAlign": "center"
-			}
+		"RobotoMediumNormal": "@RobotoMedium",
+		"RobotoMediumWeight200": "@RobotoMediumCustom"
+	  },
+	  "images": {
+		"channelPosterFHD": "pkg:/images/channel-poster_fhd.png",
+		"channelPosterHD": "pkg:/images/channel-poster_hd.png"
+	  },
+	  "strings": {
+		"de": {
+		  "title": "Titel",
+		  "description": "Beschreibung"
+		},
+		"en": {
+		  "title": "Title",
+		  "description": "Description"
+		},
+		"es": {
+		  "title": "Título",
+		  "description": "Descripción"
+		},
+		"fr": {
+		  "title": "Titre",
+		  "description": "La description"
 		}
-	},
-	"api": {
-		"analytics": {
-			"ga": {}
-		},
-		"auth": {
-			"idm": {
-				"login": {
-					"uri": "http://httpbin.org/delay/3",
-					"method": "GET",
-					"headers": {
-						"Content-Type": "application/json"
-					},
-					"body": {
-						"username": "",
-						"password": ""
-					}
-				}
-			}
-		},
-		"backstage": {},
-		"details": {
-			"getDetailed": {}
-		}
-	},
-	"views": {
-		"details": {},
-		"home": {},
-		"users": {
-			"users": [
+	  },
+	  "layouts": {
+		"HomeRowListItem": {
+		  "type": "Group",
+		  "children": [
+			{
+			  "type": "OvyLayoutGroup",
+			  "fields": {
+				"layoutDirection": "vert",
+				"vertAlignment": "top",
+				"itemSpacings": [
+				  20
+				],
+				"translation": [
+				  0,
+				  0
+				]
+			  },
+			  "children": [
 				{
-					"name": "John from brancd",
-					"age": 21,
-					"language": [
-						"JavaScript",
-						"PHP",
-						"Python"
-					]
+				  "type": "Poster",
+				  "fields": {
+					"id": "itemImage",
+					"translation": [
+					  0,
+					  0
+					],
+					"width": 300,
+					"height": 225,
+					"uri": "@content/posterUrl"
+				  }
 				},
 				{
-					"name": "Smith2",
-					"age": 25,
-					"language": [
-						"PHP",
-						"Go",
-						"JavaScript"
-					]
+				  "type": "Label",
+				  "fields": {
+					"id": "itemText",
+					"horizAlign": "center",
+					"translation": [
+					  0,
+					  0
+					],
+					"font": "font:MediumSystemFont",
+					"width": 300,
+					"height": 65,
+					"text": "@content/labelText"
+				  }
 				}
-			]
+			  ]
+			}
+		  ]
 		}
+	  },
+	  "styles": {
+		"contentPoster": {
+		  "width": 240,
+		  "height": 240,
+		  "loadWidth": 240,
+		  "loadHeight": 240,
+		  "loadDisplayMode": "scaleToFill"
+		},
+		"secondaryButtonLabel": {
+		  "id": "testLabel",
+		  "height": "44",
+		  "width": "0",
+		  "font": "font:MediumBoldSystemFont",
+		  "text": "Application Development Made Easy!",
+		  "horizAlign": "left",
+		  "vertAlign": "center",
+		  "translation": "[318,8]"
+		},
+		"secondary": {
+		  "itemComponentName": "@layouts/itemPosterWithMetadata",
+		  "itemSize": [
+			320,
+			240
+		  ],
+		  "numColumns": 4,
+		  "restApi": "@api/details.getDetailed",
+		  "contentHandler": "DetailsRowsContentHandler",
+		  "loader": "@layouts/rowLoadingSpinner"
+		}
+	  }
+	},
+	"api": {
+	  "analytics": {
+		"ga": {}
+	  },
+	  "auth": {
+		"idm": {
+		  "login": {
+			"uri": "http://httpbin.org/delay/3",
+			"method": "GET",
+			"headers": {
+			  "Content-Type": "application/json"
+			},
+			"body": {
+			  "username": "",
+			  "password": ""
+			}
+		  }
+		}
+	  },
+	  "backstage": {},
+	  "details": {
+		"getDetailed": {
+		  "uri": "https://jonathanbduval.com/roku/feeds/roku-developers-feed-v1.json",
+		  "method": "GET"
+		}
+	  },
+	  "home": {
+		"getHomeData": {
+		  "uri": "https://www.jsonkeeper.com/b/XPQX",
+		  "method": "GET"
+		}
+	  }
+	},
+	"views": {
+	  "details": {
+		"interface": {
+		  "@notify": "isViewed,bookmark",
+		  "isViewed": false,
+		  "bookmark": "00:20",
+		  "controller": "@args/controller",
+		  "api": "@api/details.getDetailed",
+		  "backgroundColor": "@color/blue"
+		},
+		"layout": {
+		  "type": "LayoutGroup",
+		  "fields": {
+			"itemSpacings": [
+			  32
+			],
+			"translation": [
+			  20,
+			  20
+			]
+		  },
+		  "children": [
+			{
+			  "type": "Group",
+			  "children": [
+				{
+				  "type": "Poster",
+				  "fields": {
+					"id": "detailPoster",
+					"width": 320,
+					"height": 240,
+					"loadWidth": 320,
+					"loadHeight": 240,
+					"loadDisplayMode": "scaleToFill",
+					"uri": "pkg:/images/channel-poster_fhd.png",
+					"translation": [
+					  200,
+					  0
+					]
+				  }
+				},
+				{
+				  "type": "Label",
+				  "fields": {
+					"@res": "@style/secondaryButtonLabel",
+					"width": 740,
+					"id": "title",
+					"text": "@string/title",
+					"translation": [
+					  200,
+					  350
+					],
+					"maxLines": 4
+				  }
+				},
+				{
+				  "type": "Label",
+				  "fields": {
+					"width": 740,
+					"id": "description",
+					"text": "@string/description",
+					"translation": [
+					  200,
+					  400
+					],
+					"maxLines": 4
+				  }
+				}
+			  ]
+			},
+			{
+			  "type": "MarkupGrid",
+			  "fields": {
+				"itemComponentName": "MarkupGridItem",
+				"itemSize": [
+				  532,
+				  308
+				],
+				"translation": [
+				  130,
+				  160
+				],
+				"numColumns": 3,
+				"numRows": 4,
+				"itemSpacing": [
+				  20,
+				  20
+				],
+				"data": "@data/movies",
+				"loader": "@layout/rowLoadingSpinner"
+			  },
+			  "observers": {
+				"itemSelected": "@view/playEpisode(@content[i])"
+			  }
+			}
+		  ]
+		}
+	  },
+	  "home": {
+		"interface": {},
+		"layout": {
+		  "type": "Group",
+		  "fields": {
+			"translation": [
+			  0,
+			  0
+			]
+		  },
+		  "children": [
+			{
+			  "type": "Rectangle",
+			  "fields": {
+				"id": "focusableRectangle",
+				"color": "0x880088FF",
+				"width": 1920,
+				"height": 600,
+				"visible": "false",
+				"translation": [
+				  0,
+				  0
+				]
+			  }
+			},
+			{
+			  "type": "Poster",
+			  "fields": {
+				"id": "banner",
+				"uri": "pkg:/images/splash-screen_fhd.jpg",
+				"width": 1916,
+				"height": 596,
+				"translation": [
+				  2,
+				  2
+				]
+			  }
+			},
+			{
+			  "type": "Poster",
+			  "fields": {
+				"id": "logo",
+				"uri": "pkg:/images/channel-poster_sd.png",
+				"width": 0,
+				"height": 0,
+				"translation": [
+				  150,
+				  500
+				]
+			  }
+			},
+			{
+			  "type": "Poster",
+			  "fields": {
+				"id": "overhanglogo",
+				"uri": "pkg:/images/channel-poster_sd.png",
+				"width": 0,
+				"height": 0,
+				"visible": "false",
+				"translation": [
+				  0,
+				  0
+				]
+			  }
+			},
+			{
+			  "type": "ovyRowList",
+			  "fields": {
+				"itemComponentName": "@layout/HomeRowListItem",
+				"itemSize": [
+				  1920,
+				  290
+				],
+				"translation": [
+				  30,
+				  650
+				],
+				"numRows": 4,
+				"rowHeights": [
+				  290
+				],
+				"rowItemSize": [
+				  [
+					300,
+					290
+				  ]
+				],
+				"showRowLabel": [
+				  true,
+				  true
+				],
+				"rowLabelColor": "0xa0b033ff",
+				"itemSpacing": [
+				  0,
+				  85
+				],
+				"rowItemSpacing": [
+				  [
+					20,
+					0
+				  ]
+				],
+				"rowLabelOffset": [
+				  [
+					0,
+					30
+				  ]
+				],
+				"rowFocusAnimationStyle": "fixedFocusWrap",
+				"controller": "@args/controller",
+				"api": "@api/home.getHomeData",
+				"contentHandler": "OvyContentHandler"
+			  },
+			  "observers": {
+				"rowItemSelected": "@view/details(@content[i])"
+			  }
+			}
+		  ]
+		}
+	  }
 	}
-}
+  }
