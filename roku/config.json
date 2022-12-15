@@ -184,7 +184,7 @@
 		  "bookmark": "00:20",
 		  "controller": "@args/controller",
 		  "api": "@api/details.getDetailed",
-		  "backgroundColor": "@color/white"
+		  "backgroundColor": "@color/black"
 		},
 		"layout": {
 		  "type": "LayoutGroup",
@@ -291,7 +291,7 @@
 				"id": "focusableRectangle",
 				"color": "0x880088FF",
 				"width": 1920,
-				"height": 600,
+				"height": 400,
 				"visible": "false",
 				"translation": [
 				  0,
@@ -320,7 +320,7 @@
 				"width": 0,
 				"height": 0,
 				"translation": [
-				  150,
+				  1600,
 				  500
 				]
 			  }
