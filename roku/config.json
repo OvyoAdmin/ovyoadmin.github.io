@@ -1,7 +1,7 @@
 {
 	"main": {
 	  "settings": {
-		"languageCode": "de",
+		"languageCode": "en",
 		"landingPage": "@view/home"
 	  }
 	},
@@ -185,7 +185,7 @@
 		  "bookmark": "00:20",
 		  "controller": "@args/controller",
 		  "api": "@api/details.getDetailed",
-		  "backgroundColor": "@color/white"
+		  "backgroundColor": "@color/blue"
 		},
 		"layout": {
 		  "type": "LayoutGroup",
