@@ -185,7 +185,7 @@
 		  "bookmark": "00:20",
 		  "controller": "@args/controller",
 		  "api": "@api/details.getDetailed",
-		  "backgroundColor": "@color/black"
+		  "backgroundColor": "@color/white"
 		},
 		"layout": {
 		  "type": "LayoutGroup",
@@ -304,7 +304,7 @@
 			  "type": "Poster",
 			  "fields": {
 				"id": "banner",
-				"uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/600x450/pexels-david-bartus-1166209.jpg",
+				"uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/600x450/pexels-eberhard-grossgasteiger-1064162.jpg",
 				"width": 1916,
 				"height": 596,
 				"translation": [
