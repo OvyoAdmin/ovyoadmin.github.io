@@ -224,7 +224,7 @@
 					"@res": "@style/secondaryButtonLabel",
 					"width": 740,
 					"id": "title",
-					"text": "@args/content.title",
+					"text": "@args/content.labeltext",
 					"translation": [
 					  200,
 					  350
