@@ -165,13 +165,13 @@
 	  "backstage": {},
 	  "details": {
 		"getDetailed": {
-		  "uri": "https://jonathanbduval.com/roku/feeds/roku-developers-feed-v1.json",
+		  "uri": "https://ovyoadmin.github.io/roku/detailsview.json",
 		  "method": "GET"
 		}
 	  },
 	  "home": {
 		"getHomeData": {
-		  "uri": "https://www.jsonkeeper.com/b/XPQX",
+		  "uri": "https://ovyoadmin.github.io/roku/home.json",
 		  "method": "GET"
 		}
 	  }
@@ -303,7 +303,7 @@
 			  "type": "Poster",
 			  "fields": {
 				"id": "banner",
-				"uri": "pkg:/images/splash-screen_fhd.jpg",
+				"uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/pexels-carlos-oliva-3586966.jpg",
 				"width": 1916,
 				"height": 596,
 				"translation": [
