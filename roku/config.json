@@ -185,7 +185,7 @@
 		  "bookmark": "00:20",
 		  "controller": "@args/controller",
 		  "api": "@api/details.getDetailed",
-		  "backgroundColor": "@color/blue"
+		  "backgroundColor": "@color/aqua"
 		},
 		"layout": {
 		  "type": "LayoutGroup",
