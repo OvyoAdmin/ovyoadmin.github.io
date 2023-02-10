@@ -286,6 +286,17 @@
           }
         ]
       }
+    },
+    "player": {
+      "args": {
+        "enableCustomUI": true,
+        "progressbarFields": {
+          "width": 1600,
+          "height": 10,
+          "scrubberWidth": 31,
+          "scrubberHeight": 31
+        }
+      }
     }
   },
   "api": {
@@ -414,6 +425,9 @@
                         60
                       ],
                       "data": "@data/buttons"
+                    },
+                    "observers": {
+                      "itemSelected": "@view/OvyVideo(@data/player.args)"
                     }
                   },
                   {
