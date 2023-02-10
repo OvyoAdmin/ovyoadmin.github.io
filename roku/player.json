@@ -1,0 +1,637 @@
+{
+  "main": {
+    "settings": {
+      "languageCode": "de",
+      "landingPage": "@view/home"
+    }
+  },
+  "resources": {
+    "colors": {
+      "red": "#FF0000",
+      "white": "#FFFFFF",
+      "black": "#000000",
+      "blue": "#0000FF",
+      "navy": "#000080",
+      "yellow": "#FFFF00",
+      "fuchsia": "#FF00FF",
+      "maroon": "#800000",
+      "teal": "#008080",
+      "aqua": "#00FFFF",
+      "olive": "#808000"
+    },
+    "fonts": {
+      "RobotoBold": {
+        "uri": "pkg:/fonts/Roboto/Roboto-Bold.ttf",
+        "size": 103
+      },
+      "RobotoBlack": {
+        "uri": "pkg:/fonts/Roboto/Roboto-Black.ttf",
+        "size": 103
+      },
+      "RobotoLight": {
+        "uri": "pkg:/fonts/Roboto/Roboto-Light.ttf",
+        "size": 103
+      },
+      "RobotoMedium": {
+        "uri": "pkg:/fonts/Roboto/Roboto-Medium.ttf",
+        "size": 103
+      },
+      "RobotoMediumNormal": "@RobotoMedium",
+      "RobotoMediumWeight200": "@RobotoMediumCustom"
+    },
+    "images": {
+      "channelPosterFHD": "pkg:/images/channel-poster_fhd.png",
+      "channelPosterHD": "pkg:/images/channel-poster_hd.png"
+    },
+    "strings": {
+      "de": {
+        "title": "Titel",
+        "description": "Beschreibung"
+      },
+      "en": {
+        "title": "Title",
+        "description": "Description"
+      },
+      "es": {
+        "title": "Título",
+        "description": "Descripción"
+      },
+      "fr": {
+        "title": "Titre",
+        "description": "La description"
+      }
+    },
+    "layouts": {
+      "HomeRowListItem": {
+        "type": "Group",
+        "children": [
+          {
+            "type": "OvyLayoutGroup",
+            "fields": {
+              "layoutDirection": "vert",
+              "vertAlignment": "top",
+              "itemSpacings": [
+                20
+              ],
+              "translation": [
+                0,
+                0
+              ]
+            },
+            "children": [
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "itemImage",
+                  "translation": [
+                    0,
+                    0
+                  ],
+                  "width": 300,
+                  "height": 225,
+                  "loadDisplayMode": "limitSize",
+                  "uri": "@content/posterUrl"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "itemText",
+                  "horizAlign": "center",
+                  "translation": [
+                    0,
+                    0
+                  ],
+                  "font": "font:MediumSystemFont",
+                  "width": 300,
+                  "height": 65,
+                  "text": "@content/labelText"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "HomeCarouselItem": {
+        "type": "Group",
+        "children": [
+          {
+            "type": "Poster",
+            "fields": {
+              "id": "item",
+              "loadDisplayMode": "limitSize",
+              "uri": "@content/uri",
+              "width": "@content/width",
+              "height": "@content/height"
+            }
+          }
+        ]
+      },
+      "DetailsRowListItem": {
+        "type": "Group",
+        "children": [
+          {
+            "type": "OvyLayoutGroup",
+            "fields": {
+              "layoutDirection": "vert",
+              "vertAlignment": "top",
+              "itemSpacings": [
+                50
+              ],
+              "translation": [
+                0,
+                0
+              ]
+            },
+            "children": [
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "itemImage",
+                  "translation": [
+                    0,
+                    0
+                  ],
+                  "width": 200,
+                  "height": 300,
+                  "loadWidth": 200,
+                  "loadHeight": 300,
+                  "uri": "@content/posterUrl",
+                  "loadDisplayMode": "limitSize"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "itemText",
+                  "horizAlign": "center",
+                  "translation": [
+                    0,
+                    0
+                  ],
+                  "font": "font:MediumSystemFont",
+                  "width": 200,
+                  "height": 100,
+                  "text": "@content/labelText"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "DetailsTabListItem": {
+        "type": "Group",
+        "children": [
+          {
+            "type": "OvyLayoutGroup",
+            "fields": {
+              "layoutDirection": "vert",
+              "itemSpacings": [
+                10
+              ],
+              "translation": [
+                0,
+                0
+              ]
+            },
+            "children": [
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "itemText",
+                  "horizAlign": "center",
+                  "vertAlign": "center",
+                  "wrap": false,
+                  "font": "font:MediumSystemFont",
+                  "width": "@content/width",
+                  "height": "@content/height",
+                  "text": "@content/labelText"
+                }
+              },
+              {
+                "type": "Rectangle",
+                "fields": {
+                  "id": "focusIndicator",
+                  "width": "0",
+                  "opacity": "0",
+                  "height": "10",
+                  "visible": true,
+                  "translation": "[0,0]"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "styles": {
+      "contentPoster": {
+        "width": 240,
+        "height": 240,
+        "loadWidth": 240,
+        "loadHeight": 240,
+        "loadDisplayMode": "scaleToFill"
+      },
+      "secondaryButtonLabel": {
+        "id": "testLabel",
+        "height": 44,
+        "width": 0,
+        "font": "font:MediumBoldSystemFont",
+        "text": "Application Development Made Easy!",
+        "horizAlign": "left",
+        "vertAlign": "center",
+        "translation": [
+          318,
+          8
+        ]
+      },
+      "secondary": {
+        "itemComponentName": "@layouts/itemPosterWithMetadata",
+        "itemSize": [
+          320,
+          240
+        ],
+        "numColumns": 4,
+        "restApi": "@api/details.getDetailed",
+        "contentHandler": "DetailsRowsContentHandler",
+        "loader": "@layouts/rowLoadingSpinner"
+      }
+    }
+  },
+  "data": {
+    "home": {
+      "carousel": {
+        "data": [
+          {
+            "uri": "pkg:/images/banner1.jpg"
+          },
+          {
+            "uri": "pkg:/images/banner2.jpg"
+          },
+          {
+            "uri": "pkg:/images/banner3.jpg"
+          },
+          {
+            "uri": "pkg:/images/banner4.jpg"
+          }
+        ]
+      }
+    },
+    "details": {
+      "movieActionsMenu": {
+        "id": "moviemenucontent",
+        "data": [
+          {
+            "title": "play"
+          }
+        ]
+      }
+    },
+    "player": {
+      "args": {
+        "enableCustomUI": true,
+        "progressbarFields": {
+          "width": 1600,
+          "height": 10,
+          "scrubberWidth": 31,
+          "scrubberHeight": 31
+        }
+      }
+    }
+  },
+  "api": {
+    "analytics": {
+      "ga": {}
+    },
+    "auth": {
+      "idm": {
+        "login": {
+          "uri": "http://httpbin.org/delay/3",
+          "method": "GET",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "username": "",
+            "password": ""
+          }
+        }
+      }
+    },
+    "backstage": {},
+    "details": {
+      "getDetailed": {
+        "uri": "https://ovyoadmin.github.io/roku/detailsview.json",
+        "method": "GET"
+      }
+    },
+    "home": {
+      "getHomeData": {
+        "uri": "https://ovyoadmin.github.io/roku/home.json",
+        "method": "GET"
+      },
+      "getCarouselData": {
+        "uri": "https://jsonkeeper.com/b/ZCZ0",
+        "method": "GET"
+      }
+    }
+  },
+  "views": {
+    "details": {
+      "interface": {
+        "@notify": "isViewed,bookmark",
+        "isViewed": false,
+        "bookmark": "00:20"
+      },
+      "layout": {
+        "type": "Group",
+        "children": [
+          {
+            "type": "OvyView",
+            "fields": {
+              "api": "@api/details.getDetailedLocal",
+              "backgroundImageUri": "@data/details.heroImage"
+            },
+            "children": [
+              {
+                "type": "OvyLayoutGroup",
+                "fields": {
+                  "id": "scrollableLayout",
+                  "pageScrollVertAnim": "@anim/pageScrollVertAnim",
+                  "pageScrollVertMarkers": "[detailsTabs]",
+                  "translation": [
+                    32,
+                    64
+                  ],
+                  "itemSpacings": [
+                    32,
+                    0,
+                    16
+                  ]
+                },
+                "children": [
+                  {
+                    "type": "Poster",
+                    "fields": {
+                      "id": "logo",
+                      "width": 400,
+                      "height": 250,
+                      "loadWidth": 400,
+                      "loadHeight": 250,
+                      "translation": [
+                        100,
+                        100
+                      ],
+                      "uri": "@data/details.logoUrl",
+                      "loadDisplayMode": "limitSize"
+                    }
+                  },
+                  {
+                    "type": "Label",
+                    "fields": {
+                      "id": "descriptionLabel",
+                      "width": 900,
+                      "height": 90,
+                      "wrap": true,
+                      "horizAlign": "left",
+                      "text": "@data/description"
+                    }
+                  },
+                  {
+                    "type": "OvyButton",
+                    "fields": {
+                      "@res": "@style/labelButton",
+                      "id": "more",
+                      "minWidth": 120,
+                      "unfocusedOpacity": "0.3",
+                      "focusedTextColor": "0xa0b033ff",
+                      "states": "collapse, expand",
+                      "text": "Show more"
+                    },
+                    "observers": {
+                      "stateIndex": [
+                        "@field/more(@text/Show less);@anim/labelExpandAnim(@fieldToInterp/descriptionLabel.height, @keyValue/[90-360])",
+                        "@field/more(@text/Show more);@anim/labelExpandAnim(@fieldToInterp/descriptionLabel.height, @keyValue/[360-90])"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "LabelList",
+                    "fields": {
+                      "id": "moviemenu",
+                      "focusable": true,
+                      "itemSize": [
+                        350,
+                        60
+                      ],
+                      "data": "@data/buttons"
+                    },
+                    "observers": {
+                      "itemSelected": "@view/OvyVideo(@data/player.args)"
+                    }
+                  },
+                  {
+                    "type": "OvyRowList",
+                    "fields": {
+                      "id": "episodeList",
+                      "itemComponentName": "@layout/DetailsRowListItem",
+                      "numRows": 1,
+                      "itemSize": [
+                        1920,
+                        290
+                      ],
+                      "rowHeights": [
+                        290
+                      ],
+                      "rowItemSize": [
+                        [
+                          200,
+                          300
+                        ]
+                      ],
+                      "itemSpacing": [
+                        50,
+                        85
+                      ],
+                      "rowItemSpacing": [
+                        [
+                          50,
+                          0
+                        ]
+                      ],
+                      "rowLabelOffset": [
+                        [
+                          0,
+                          30
+                        ]
+                      ],
+                      "showRowLabel": [
+                        true
+                      ],
+                      "rowLabelColor": "0xa0b033ff",
+                      "data": "@data/videos"
+                    }
+                  },
+                  {
+                    "type": "OvyRowList",
+                    "fields": {
+                      "api": "@api/details.getDetailsTabs",
+                      "id": "detailsTabs",
+                      "itemComponentName": "@layout/DetailsTabListItem",
+                      "numRows": 1,
+                      "itemSize": [
+                        1800,
+                        160
+                      ],
+                      "rowItemSize": [
+                        [
+                          300,
+                          75
+                        ]
+                      ],
+                      "itemSpacing": [
+                        50,
+                        0
+                      ]
+                    },
+                    "observers": {
+                      "rowItemFocused": "@addReplace/scrollableLayout(@layout/@content[i].layout, 6)"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "home": {
+      "interface": {},
+      "layout": {
+        "type": "Group",
+        "fields": {
+          "pageScrollVertAnim": "@anim/pageScrollVertAnim",
+          "pageScrollVertMarkers": "[homeRows]",
+          "translation": [
+            0,
+            0
+          ]
+        },
+        "children": [
+          {
+            "type": "Rectangle",
+            "fields": {
+              "id": "focusableRectangle",
+              "color": "0x880088FF",
+              "width": 1920,
+              "height": 400,
+              "visible": false,
+              "translation": [
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "type": "OvyCarouselView",
+            "fields": {
+              "id": "banner",
+              "data": "@data/home.carousel",
+              "itemComponentName": "@layout/homeCarouselItem",
+              "indicatorPositionOffset": [
+                0,
+                -8
+              ],
+              "autoScroll": true,
+              "width": 1920,
+              "height": 596,
+              "translation": [
+                2,
+                2
+              ]
+            }
+          },
+          {
+            "type": "Poster",
+            "fields": {
+              "id": "logo",
+              "uri": "pkg:/images/channel-poster_sd.png",
+              "width": 0,
+              "height": 0,
+              "translation": [
+                1600,
+                500
+              ]
+            }
+          },
+          {
+            "type": "Poster",
+            "fields": {
+              "id": "overhanglogo",
+              "uri": "pkg:/images/channel-poster_sd.png",
+              "width": 0,
+              "height": 0,
+              "visible": false,
+              "translation": [
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "type": "ovyRowList",
+            "fields": {
+              "id": "homeRows",
+              "itemComponentName": "@layout/HomeRowListItem",
+              "itemSize": [
+                1920,
+                290
+              ],
+              "translation": [
+                30,
+                650
+              ],
+              "numRows": 4,
+              "rowHeights": [
+                290
+              ],
+              "rowItemSize": [
+                [
+                  300,
+                  290
+                ]
+              ],
+              "showRowLabel": [
+                true,
+                true
+              ],
+              "rowLabelColor": "0xa0b033ff",
+              "itemSpacing": [
+                0,
+                85
+              ],
+              "rowItemSpacing": [
+                [
+                  20,
+                  0
+                ]
+              ],
+              "rowLabelOffset": [
+                [
+                  0,
+                  30
+                ]
+              ],
+              "rowFocusAnimationStyle": "fixedFocusWrap",
+              "controller": "@args/controller",
+              "api": "@api/home.getHomeData"
+            },
+            "observers": {
+              "rowItemSelected": "@view/details(@content[i])"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
