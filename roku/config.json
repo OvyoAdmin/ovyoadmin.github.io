@@ -315,28 +315,25 @@
         ]
       }
     },
-    "details": {
-      "movieActionsMenu": {
-        "id": "moviemenucontent",
-        "data": [
-          {
-            "title": "play"
-          }
-        ]
-      }
-    },
     "player": {
       "args": {
         "enableCustomUI": true,
         "contentFields": {
           "streamFormat": "mp4",
-          "url": "http://video.ted.com/talks/podcast/DanGilbert_2004_480.mp4"
+          "url": "@args/args.videoUrl"
         },
         "progressbarFields": {
           "width": 1600,
           "height": 10,
           "scrubberWidth": 31,
           "scrubberHeight": 31
+        },
+        "titleFields": {
+          "text": "@args/args.labeltext"
+        },
+        "episodesListFields": {
+          "api": "@api/home.getRecommendedShows",
+          "itemComponentName": "@layout/HomeRowListItem"
         }
       }
     }
@@ -469,7 +466,7 @@
                       "data": "@data/buttons"
                     },
                     "observers": {
-                      "itemSelected": "@view/OvyVideo(@data/player.args)"
+                      "itemSelected": "@view/OvyVideo(@data/player.args, @args/content)"
                     }
                   },
                   {
@@ -512,9 +509,6 @@
                       ],
                       "rowLabelColor": "0xa0b033ff",
                       "data": "@data/videos"
-                    },
-                    "observers": {
-                      "rowItemSelected": "@view/OvyVideo(@data/player.args, @content[i])"
                     }
                   },
                   {
