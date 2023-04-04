@@ -2,7 +2,8 @@
   "main": {
     "settings": {
       "languageCode": "de",
-      "landingPage": "@view/home"
+      "landingPage": "@view/authOptions",
+      "homePage": "@view/home"
     }
   },
   "resources": {
@@ -320,7 +321,7 @@
         "enableCustomUI": true,
         "contentFields": {
           "streamFormat": "mp4",
-          "url": "@args/args.videoUrl"
+          "url": "@args/content.videoUrl"
         },
         "progressbarFields": {
           "width": 1600,
@@ -329,11 +330,52 @@
           "scrubberHeight": 31
         },
         "titleFields": {
-          "text": "@args/args.labeltext"
+          "text": "@args/content.labeltext"
+        },
+        "subtitleFields": {
+          "text": "@args/content.posterUrl"
         },
         "episodesListFields": {
           "api": "@api/home.getRecommendedShows",
           "itemComponentName": "@layout/HomeRowListItem"
+        },
+        "enableThumbnails": true,
+        "thumbnailsConfig": {
+          "custom": {
+            "interval": 20,
+            "urls": [
+              "pkg:/images/test/thumbs/img001.jpg",
+              "pkg:/images/test/thumbs/img002.jpg",
+              "pkg:/images/test/thumbs/img003.jpg",
+              "pkg:/images/test/thumbs/img004.jpg",
+              "pkg:/images/test/thumbs/img005.jpg",
+              "pkg:/images/test/thumbs/img006.jpg",
+              "pkg:/images/test/thumbs/img007.jpg",
+              "pkg:/images/test/thumbs/img008.jpg",
+              "pkg:/images/test/thumbs/img009.jpg",
+              "pkg:/images/test/thumbs/img010.jpg",
+              "pkg:/images/test/thumbs/img011.jpg",
+              "pkg:/images/test/thumbs/img012.jpg",
+              "pkg:/images/test/thumbs/img013.jpg",
+              "pkg:/images/test/thumbs/img014.jpg",
+              "pkg:/images/test/thumbs/img015.jpg",
+              "pkg:/images/test/thumbs/img016.jpg",
+              "pkg:/images/test/thumbs/img017.jpg",
+              "pkg:/images/test/thumbs/img018.jpg",
+              "pkg:/images/test/thumbs/img019.jpg",
+              "pkg:/images/test/thumbs/img020.jpg",
+              "pkg:/images/test/thumbs/img021.jpg",
+              "pkg:/images/test/thumbs/img022.jpg",
+              "pkg:/images/test/thumbs/img023.jpg",
+              "pkg:/images/test/thumbs/img024.jpg",
+              "pkg:/images/test/thumbs/img025.jpg",
+              "pkg:/images/test/thumbs/img026.jpg",
+              "pkg:/images/test/thumbs/img027.jpg",
+              "pkg:/images/test/thumbs/img028.jpg",
+              "pkg:/images/test/thumbs/img029.jpg",
+              "pkg:/images/test/thumbs/img030.jpg"
+            ]
+          }
         }
       }
     }
@@ -463,10 +505,10 @@
                         350,
                         60
                       ],
-                      "data": "@data/buttons"
+                      "dataRes": "@data/buttons"
                     },
                     "observers": {
-                      "itemSelected": "@view/OvyVideo(@data/player.args, @args/content)"
+                      "itemSelected": "@view/OvyVideo(@fields/@data/player.args)"
                     }
                   },
                   {
@@ -508,7 +550,7 @@
                         true
                       ],
                       "rowLabelColor": "0xa0b033ff",
-                      "data": "@data/videos"
+                      "dataRes": "@data/videos"
                     }
                   },
                   {
@@ -564,7 +606,7 @@
                     "type": "OvyCarouselView",
                     "fields": {
                       "id": "banner",
-                      "data": "@data/home.carousel",
+                      "dataRes": "@data/home.carousel",
                       "width": "1920",
                       "height": "596",
                       "itemComponentName": "@layout/homeCarouselItem",
