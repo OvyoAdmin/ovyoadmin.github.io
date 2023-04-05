@@ -419,167 +419,183 @@
   },
   "views": {
     "details": {
-      "interface": {
-        "@notify": "isViewed,bookmark",
-        "isViewed": false,
-        "bookmark": "00:20"
-      },
+      "interface": {},
       "layout": {
-        "type": "Group",
+        "type": "OvyView",
+        "fields": {
+          "api": "@api/details.getDetailedLocal",
+          "backgroundImageUri": "@data/img"
+        },
         "children": [
           {
-            "type": "OvyView",
+            "type": "Group",
+            "children": [
+              {
+                "type": "Poster",
+                "fields": {
+                  "width": 1920,
+                  "height": 1080,
+                  "uri": "pkg:/images/grad_smooth_left_to_right.png"
+                }
+              },
+              {
+                "type": "Poster",
+                "fields": {
+                  "width": 1920,
+                  "height": 1080,
+                  "uri": "pkg:/images/grad_smooth_bottom_to_top.png"
+                }
+              }
+            ]
+          },
+          {
+            "type": "LayoutGroup",
             "fields": {
-              "api": "@api/details.getDetailedLocal",
-              "backgroundImageUri": "@data/details.heroImage"
+              "translation": [
+                82,
+                52
+              ],
+              "itemSpacings": [
+                16,
+                48,
+                24,
+                4,
+                0,
+                64,
+                4,
+                64
+              ],
+              "pageScrollVertAnim": "@anim/pageScrollVertAnim",
+              "pageScrollVertMarkers": "[seasonsList, castAndCrew]"
             },
             "children": [
               {
-                "type": "OvyLayoutGroup",
+                "type": "Label",
                 "fields": {
-                  "id": "scrollableLayout",
-                  "pageScrollVertAnim": "@anim/pageScrollVertAnim",
-                  "pageScrollVertMarkers": "[detailsTabs]",
-                  "translation": [
-                    32,
-                    64
-                  ],
-                  "itemSpacings": [
-                    32,
-                    0,
-                    16
-                  ]
+                  "width": 960,
+                  "id": "title",
+                  "font": "font:LargeBoldSystemFont",
+                  "text": "@data/title"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "width": 960,
+                  "id": "subtitle",
+                  "font": "font:SmallestSystemFont",
+                  "text": "{@data/ageLimit} | {@data/seasonsCount} Seasons | {@data/genre} | {@data/language}"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "width": 960,
+                  "id": "episodeTitle",
+                  "font": "font:MediumSystemFont",
+                  "wrap": true,
+                  "text": "Season {@data/playbackHistory.seasonNumber} Episode {@data/playbackHistory.episodeNumber} {@data/playbackHistory.title}"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "description",
+                  "width": 1200,
+                  "height": 72,
+                  "wrap": true,
+                  "color": "#CCCCCC",
+                  "font": "font:SmallestSystemFont",
+                  "text": "@data/longDescription"
+                }
+              },
+              {
+                "type": "OvyButton",
+                "fields": {
+                  "@res": "@style/labelButton",
+                  "id": "more",
+                  "minWidth": 120,
+                  "unfocusedOpacity": "0.3",
+                  "focusedTextColor": "0xa0b033ff",
+                  "states": "collapse, expand",
+                  "text": "Show more"
                 },
-                "children": [
-                  {
-                    "type": "Poster",
-                    "fields": {
-                      "id": "logo",
-                      "width": 400,
-                      "height": 250,
-                      "loadWidth": 400,
-                      "loadHeight": 250,
-                      "translation": [
-                        100,
-                        100
-                      ],
-                      "uri": "@data/details.logoUrl",
-                      "loadDisplayMode": "limitSize"
-                    }
-                  },
-                  {
-                    "type": "Label",
-                    "fields": {
-                      "id": "descriptionLabel",
-                      "width": 900,
-                      "height": 90,
-                      "wrap": true,
-                      "horizAlign": "left",
-                      "text": "@data/description"
-                    }
-                  },
-                  {
-                    "type": "OvyButton",
-                    "fields": {
-                      "@res": "@style/labelButton",
-                      "id": "more",
-                      "minWidth": 120,
-                      "unfocusedOpacity": "0.3",
-                      "focusedTextColor": "0xa0b033ff",
-                      "states": "collapse, expand",
-                      "text": "Show more"
-                    },
-                    "observers": {
-                      "state": {
-                        "collapse": "@field/more(@text/Show less);@anim/labelExpandAnim(@fieldToInterp/descriptionLabel.height, @keyValue/[90-360])",
-                        "expand": "@field/more(@text/Show more);@anim/labelExpandAnim(@fieldToInterp/descriptionLabel.height, @keyValue/[360-90])"
-                      }
-                    }
-                  },
-                  {
-                    "type": "LabelList",
-                    "fields": {
-                      "id": "moviemenu",
-                      "focusable": true,
-                      "itemSize": [
-                        350,
-                        60
-                      ],
-                      "dataRes": "@data/buttons"
-                    },
-                    "observers": {
-                      "itemSelected": "@view/OvyVideo(@fields/@data/player.args)"
-                    }
-                  },
-                  {
-                    "type": "OvyRowList",
-                    "fields": {
-                      "id": "episodeList",
-                      "itemComponentName": "@layout/DetailsRowListItem",
-                      "numRows": 1,
-                      "itemSize": [
-                        1920,
-                        290
-                      ],
-                      "rowHeights": [
-                        290
-                      ],
-                      "rowItemSize": [
-                        [
-                          200,
-                          300
-                        ]
-                      ],
-                      "itemSpacing": [
-                        50,
-                        85
-                      ],
-                      "rowItemSpacing": [
-                        [
-                          50,
-                          0
-                        ]
-                      ],
-                      "rowLabelOffset": [
-                        [
-                          0,
-                          30
-                        ]
-                      ],
-                      "showRowLabel": [
-                        true
-                      ],
-                      "rowLabelColor": "0xa0b033ff",
-                      "dataRes": "@data/videos"
-                    }
-                  },
-                  {
-                    "type": "OvyRowList",
-                    "fields": {
-                      "api": "@api/details.getDetailsTabs",
-                      "id": "detailsTabs",
-                      "itemComponentName": "@layout/DetailsTabListItem",
-                      "numRows": 1,
-                      "itemSize": [
-                        1800,
-                        160
-                      ],
-                      "rowItemSize": [
-                        [
-                          300,
-                          75
-                        ]
-                      ],
-                      "itemSpacing": [
-                        50,
-                        0
-                      ]
-                    },
-                    "observers": {
-                      "rowItemFocused": "@addReplace/scrollableLayout(@layout/@content[i].layout, 6)"
-                    }
+                "observers": {
+                  "state": {
+                    "collapse": "@field/more(@text/Show less);@anim/labelExpandAnim(@fieldToInterp/description.height, @keyValue/[72|360])",
+                    "expand": "@field/more(@text/Show more);@anim/labelExpandAnim(@fieldToInterp/description.height, @keyValue/[360|72])"
                   }
-                ]
+                }
+              },
+              {
+                "type": "OvyRowList",
+                "fields": {
+                  "id": "seasonsList",
+                  "itemComponentName": "@layout/EpisodeRowListItem",
+                  "numRows": 3,
+                  "itemSize": "[ 1920, 150 ]",
+                  "rowItemSize": "[[266, 150]]",
+                  "itemSpacing": "[ 0, 112 ]",
+                  "rowItemSpacing": "[ [30, 0] ]",
+                  "rowLabelOffset": "[ [0, 30] ]",
+                  "vertFocusAnimationStyle": "floatingFocus",
+                  "showRowLabel": [
+                    true
+                  ],
+                  "rowLabelFont": "font:SmallestBoldSystemFont",
+                  "dataRes": "@data/seasons"
+                },
+                "observers": {
+                  "rowItemSelected": "@view/OvyVideo(@fields/@data/player.args)"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "width": 740,
+                  "text": "CAST & CREW",
+                  "font": "font:MediumBoldSystemFont",
+                  "maxLines": 1
+                }
+              },
+              {
+                "type": "OvyMarkupGrid",
+                "fields": {
+                  "id": "castAndCrew",
+                  "itemComponentName": "CastnCrewItem",
+                  "itemSize": [
+                    300,
+                    290
+                  ],
+                  "numColumns": 10,
+                  "numRows": 1,
+                  "itemSpacing": [
+                    20,
+                    20
+                  ],
+                  "dataRes": "@data/castAndCrew"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "width": 740,
+                  "id": "aboutLable",
+                  "text": "ABOUT",
+                  "font": "font:MediumBoldSystemFont",
+                  "maxLines": 1
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "descriptionAbout",
+                  "text": "@data/longDescription",
+                  "focusable": true,
+                  "width": 1658,
+                  "wrap": true,
+                  "font": "font:SmallestBoldSystemFont"
+                }
               }
             ]
           }
