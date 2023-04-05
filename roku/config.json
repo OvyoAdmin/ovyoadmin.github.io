@@ -320,8 +320,7 @@
       "args": {
         "enableCustomUI": true,
         "contentFields": {
-          "streamFormat": "mp4",
-          "url": "@args/content.videoUrl"
+          "url": "@content[i]/content.videos[0].url"
         },
         "progressbarFields": {
           "width": 1600,
@@ -330,10 +329,10 @@
           "scrubberHeight": 31
         },
         "titleFields": {
-          "text": "@args/content.labeltext"
+          "text": "@content[i]/title"
         },
         "subtitleFields": {
-          "text": "@args/content.posterUrl"
+          "text": "@content[i]/shortDescription"
         },
         "episodesListFields": {
           "api": "@api/home.getRecommendedShows",
@@ -595,6 +594,404 @@
                   "width": 1658,
                   "wrap": true,
                   "font": "font:SmallestBoldSystemFont"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "authOptions": {
+      "interface": {},
+      "layout": {
+        "type": "OvyView",
+        "children": [
+          {
+            "type": "OvyGroup",
+            "fields": {
+              "id": "signupPosterGroup"
+            },
+            "children": [
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "backgroundPoster",
+                  "uri": "S://",
+                  "width": "1920",
+                  "height": "1080",
+                  "loadWidth": "1920",
+                  "loadHeight": "1080",
+                  "loadDisplayMode": "limitSize",
+                  "translation": "[0, 0]"
+                }
+              },
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "logoPoster",
+                  "uri": "pkg:/images/white-logo.png",
+                  "width": "214",
+                  "height": "144",
+                  "loadWidth": "214",
+                  "loadHeight": "144",
+                  "blendColor": "#00FF00",
+                  "loadDisplayMode": "limitSize",
+                  "translation": "[853, 50]"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "signinSignupLabel",
+                  "width": "1120",
+                  "horizAlign": "center",
+                  "vertAlign": "center",
+                  "font": "font:LargeBoldSystemFont",
+                  "text": "SIGNIN / SIGNUP USING REMOTE",
+                  "translation": "[400, 290]"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "signinSignupDescriptionLabel",
+                  "width": "1120",
+                  "height": "32",
+                  "horizAlign": "center",
+                  "vertAlign": "center",
+                  "font": "font:SmallestSystemFont",
+                  "text": "Use your remote to sign in with your existing account Or Sign up",
+                  "translation": "[400, 418]"
+                }
+              },
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "tvIconPoster",
+                  "uri": "pkg:/images/icon_tv.png",
+                  "width": "248",
+                  "height": "182",
+                  "loadWidth": "248",
+                  "loadHeight": "182",
+                  "loadDisplayMode": "limitSize",
+                  "translation": "[836, 556]"
+                }
+              },
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "remoteIconPoster",
+                  "uri": "pkg:/images/icon_remote.png",
+                  "width": "113",
+                  "height": "164",
+                  "loadWidth": "113",
+                  "loadHeight": "164",
+                  "loadDisplayMode": "limitSize",
+                  "translation": "[980, 640]"
+                }
+              }
+            ]
+          },
+          {
+            "type": "OvyLayoutGroup",
+            "fields": {
+              "id": "signinSignupButtonsLayoutGroup",
+              "layoutDirection": "horiz",
+              "horizAlignment": "center",
+              "focusable": "false",
+              "itemSpacings": "[114]",
+              "translation": "[960, 848]"
+            },
+            "children": [
+              {
+                "type": "OvyButton",
+                "fields": {
+                  "id": "landingSigninButton",
+                  "iconUri": "S://",
+                  "focusedIconUri": "S://",
+                  "text": "SIGN IN",
+                  "textcolor": "#FFFFFF",
+                  "focusedTextColor": "#FFFFFF",
+                  "focusable": "true",
+                  "horizFocusable": "true",
+                  "showFocusFootprint": "true",
+                  "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png",
+                  "focusBitmapUri": "pkg:/images/green_image.9.png",
+                  "minWidth": "230",
+                  "maxWidth": "230",
+                  "height": "60",
+                  "backgroundColor": "#00000000",
+                  "backgroundFocusedColor": "#00000000"
+                },
+                "observers": {
+                  "buttonSelected": "@view/signinSignup;"
+                }
+              },
+              {
+                "type": "OvyButton",
+                "fields": {
+                  "id": "landingSignupButton",
+                  "iconUri": "S://",
+                  "focusedIconUri": "S://",
+                  "text": "SIGN UP",
+                  "textcolor": "#FFFFFF",
+                  "focusedTextColor": "#FFFFFF",
+                  "focusable": "false",
+                  "horizFocusable": "true",
+                  "showFocusFootprint": "true",
+                  "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png",
+                  "focusBitmapUri": "pkg:/images/green_image.9.png",
+                  "minWidth": "230",
+                  "maxWidth": "230",
+                  "height": "60",
+                  "backgroundColor": "#00000000",
+                  "backgroundFocusedColor": "#00000000"
+                },
+                "observers": {
+                  "buttonSelected": "@view/signup;"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "signinSignup": {
+      "interface": {},
+      "layout": {
+        "type": "OvyView",
+        "children": [
+          {
+            "type": "OvyGroup",
+            "fields": {
+              "id": "signupPosterGroup"
+            },
+            "children": [
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "backgroundPoster",
+                  "uri": "S://",
+                  "width": "1920",
+                  "height": "1080",
+                  "loadWidth": "1920",
+                  "loadHeight": "1080",
+                  "loadDisplayMode": "limitSize",
+                  "translation": "[0, 0]"
+                }
+              },
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "logoPoster",
+                  "uri": "pkg:/images/white-logo.png",
+                  "width": "214",
+                  "height": "144",
+                  "loadWidth": "214",
+                  "loadHeight": "144",
+                  "blendColor": "#00FF00",
+                  "loadDisplayMode": "limitSize",
+                  "translation": "[853, 50]"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "signinSignupLabel",
+                  "width": "1120",
+                  "horizAlign": "center",
+                  "vertAlign": "center",
+                  "font": "font:LargeBoldSystemFont",
+                  "text": "SIGNIN / SIGNUP USING REMOTE",
+                  "translation": "[400, 220]"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "signinSignupDescriptionLabel",
+                  "width": "1120",
+                  "height": "32",
+                  "horizAlign": "center",
+                  "vertAlign": "center",
+                  "font": "font:SmallestSystemFont",
+                  "text": "Use your remote to sign in with your existing account Or Sign up",
+                  "translation": "[400, 304]"
+                }
+              },
+              {
+                "type": "Label",
+                "fields": {
+                  "id": "errorTextLabel",
+                  "width": "1720",
+                  "horizAlign": "center",
+                  "vertAlign": "center",
+                  "color": "#FF0000",
+                  "font": "font:MediumBoldSystemFont",
+                  "text": "@error/message.message",
+                  "translation": "[100, 350]"
+                }
+              },
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "tvIconPoster",
+                  "uri": "pkg:/images/icon_tv.png",
+                  "width": "248",
+                  "height": "182",
+                  "loadWidth": "248",
+                  "loadHeight": "182",
+                  "loadDisplayMode": "limitSize",
+                  "translation": "[400, 490]"
+                }
+              },
+              {
+                "type": "Poster",
+                "fields": {
+                  "id": "remoteIconPoster",
+                  "uri": "pkg:/images/icon_remote.png",
+                  "width": "113",
+                  "height": "164",
+                  "loadWidth": "113",
+                  "loadHeight": "164",
+                  "loadDisplayMode": "limitSize",
+                  "translation": "[544, 574]"
+                }
+              }
+            ]
+          },
+          {
+            "type": "OvyLayoutGroup",
+            "fields": {
+              "id": "signinSignupLayoutGroup",
+              "layoutDirection": "vert",
+              "horizAlignment": "center",
+              "itemSpacings": "[20, 69, 90, 0]",
+              "translation": "[1395, 490]",
+              "channelStoreCommand": "getUserData(@requestUserData/email, @context/signin)"
+            },
+            "children": [
+              {
+                "type": "OvyTextEditBox",
+                "fields": {
+                  "id": "emailTextBox",
+                  "clearOnDownKey": "false",
+                  "hintText": "Email ID",
+                  "active": "true",
+                  "focusable": "true",
+                  "height": "86",
+                  "width": "600",
+                  "focusedTextColor": "#000000",
+                  "hintTextColor": "#CCCCCC",
+                  "focusedBackgroundUri": "pkg:/images/green_image.9.png",
+                  "unFocusedBackgroundUri": "pkg:/images/grey_image.9.png",
+                  "text": "@channelStoreData/userData.email",
+                  "renderEditBox": "true"
+                }
+              },
+              {
+                "type": "OvyTextEditBox",
+                "fields": {
+                  "id": "passwordTextBox",
+                  "clearOnDownKey": "false",
+                  "hintText": "Password",
+                  "secureMode": "true",
+                  "focusable": "true",
+                  "height": "86",
+                  "width": "600",
+                  "focusedTextColor": "#000000",
+                  "hintTextColor": "#CCCCCC",
+                  "focusedBackgroundUri": "pkg:/images/green_image.9.png",
+                  "unFocusedBackgroundUri": "pkg:/images/grey_image.9.png",
+                  "renderEditBox": "true"
+                }
+              },
+              {
+                "type": "OvyLayoutGroup",
+                "fields": {
+                  "id": "signinSignupButtonsLayoutGroup",
+                  "layoutDirection": "horiz",
+                  "horizAlignment": "center",
+                  "focusable": "false",
+                  "itemSpacings": "[65]",
+                  "translation": "[1404, 490]"
+                },
+                "children": [
+                  {
+                    "type": "OvyButton",
+                    "fields": {
+                      "id": "signinButton",
+                      "iconUri": "S://",
+                      "focusedIconUri": "S://",
+                      "text": "SIGN IN",
+                      "textcolor": "#FFFFFF",
+                      "focusedTextColor": "#FFFFFF",
+                      "horizFocusable": "true",
+                      "showFocusFootprint": "true",
+                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png",
+                      "focusBitmapUri": "pkg:/images/green_image.9.png",
+                      "minWidth": "230",
+                      "maxWidth": "230",
+                      "height": "76",
+                      "backgroundColor": "#00000000",
+                      "backgroundFocusedColor": "#00000000"
+                    },
+                    "observers": {
+                      "buttonSelected": "@auth/signIn(@view/home)"
+                    }
+                  },
+                  {
+                    "type": "OvyButton",
+                    "fields": {
+                      "id": "signupButton",
+                      "iconUri": "S://",
+                      "focusedIconUri": "S://",
+                      "text": "SIGN UP",
+                      "textcolor": "#FFFFFF",
+                      "focusedTextColor": "#FFFFFF",
+                      "horizFocusable": "true",
+                      "focusable": "false",
+                      "showFocusFootprint": "true",
+                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png",
+                      "focusBitmapUri": "pkg:/images/green_image.9.png",
+                      "minWidth": "230",
+                      "maxWidth": "230",
+                      "height": "76",
+                      "backgroundColor": "#00000000",
+                      "backgroundFocusedColor": "#00000000"
+                    },
+                    "observers": {
+                      "buttonSelected": "@view/signup"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "OvyButton",
+                "fields": {
+                  "id": "forgotPasswordButton",
+                  "states": "unfocued, focused",
+                  "iconUri": "S://",
+                  "focusedIconUri": "S://",
+                  "text": "Forgot Password",
+                  "textcolor": "#FFFFFF",
+                  "focusedTextColor": "#00FF00",
+                  "focusable": "true",
+                  "showFocusFootprint": "false",
+                  "focusFootprintBitmapUri": "S://",
+                  "focusBitmapUri": "S://",
+                  "height": "30",
+                  "backgroundColor": "#00000000",
+                  "backgroundFocusedColor": "#00000000"
+                }
+              },
+              {
+                "type": "Rectangle",
+                "fields": {
+                  "id": "lineRectangle",
+                  "color": "#FFFFFF",
+                  "width": "324",
+                  "height": "2"
                 }
               }
             ]
