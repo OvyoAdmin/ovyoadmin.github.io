@@ -448,7 +448,7 @@
                   "width": "214",
                   "height": "144",
                   "loadWidth": "214",
-                  "blendColor": "#00FF00",
+                  "blendColor": "#006A00",
                   "loadHeight": "144",
                   "translation": "[853, 50]",
                   "loadDisplayMode": "limitSize"
@@ -459,7 +459,7 @@
                 "fields": {
                   "id": "signinSignupLabel",
                   "font": "font:LargeBoldSystemFont",
-                  "text": "SIGNIN / SIGNUP USING REMOTE",
+                  "text": "SIGN IN / SIGN UP USING REMOTE",
                   "width": "1120",
                   "vertAlign": "center",
                   "horizAlign": "center",
@@ -603,7 +603,7 @@
                   "width": "214",
                   "height": "144",
                   "loadWidth": "214",
-                  "blendColor": "#00FF00",
+                  "blendColor": "#006A00",
                   "loadHeight": "144",
                   "translation": "[853, 50]",
                   "loadDisplayMode": "limitSize"
@@ -614,7 +614,7 @@
                 "fields": {
                   "id": "signinSignupLabel",
                   "font": "font:LargeBoldSystemFont",
-                  "text": "SIGNIN / SIGNUP USING REMOTE",
+                  "text": "SIGN IN / SIGN UP USING REMOTE",
                   "width": "1120",
                   "vertAlign": "center",
                   "horizAlign": "center",
@@ -691,34 +691,38 @@
                 "fields": {
                   "id": "emailTextBox",
                   "text": "@channelStoreData/userData.email",
-                  "width": "600",
-                  "active": "true",
-                  "height": "86",
-                  "hintText": "Email ID",
-                  "focusable": "true",
-                  "hintTextColor": "#CCCCCC",
-                  "renderEditBox": "true",
                   "clearOnDownKey": "false",
-                  "focusedTextColor": "#000000",
-                  "focusedBackgroundUri": "pkg:/images/green_image.9.png",
-                  "unFocusedBackgroundUri": "pkg:/images/grey_image.9.png"
+                  "hintText": "Email ID",
+                  "active": "true",                 
+                  "focusable": "true",
+                  "height": "86",
+                  "width": "600",
+                  "focusedTextColor": "#FFFFFF",
+                  "hintTextColor": "#515151",
+                  "focusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
+                  "unFocusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
+                  "focusedBackgroundBlendColor": "#006A00",
+                  "unFocusedBackgroundBlendColor": "#FFFFFF",
+                  "renderEditBox": "true"
                 }
               },
               {
                 "type": "OvyTextEditBox",
                 "fields": {
                   "id": "passwordTextBox",
-                  "width": "600",
-                  "height": "86",
-                  "hintText": "Password",
-                  "focusable": "true",
-                  "secureMode": "true",
-                  "hintTextColor": "#CCCCCC",
-                  "renderEditBox": "true",
                   "clearOnDownKey": "false",
-                  "focusedTextColor": "#000000",
-                  "focusedBackgroundUri": "pkg:/images/green_image.9.png",
-                  "unFocusedBackgroundUri": "pkg:/images/grey_image.9.png"
+                  "hintText": "Password",
+                  "secureMode": "true",
+                  "focusable": "true",
+                  "height": "86",
+                  "width": "600",
+                  "focusedTextColor": "#FFFFFF",
+                  "hintTextColor": "#515151",
+                  "focusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
+                  "unFocusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
+                  "focusedBackgroundBlendColor": "#006A00",
+                  "unFocusedBackgroundBlendColor": "#FFFFFF",
+                  "renderEditBox": "true"
                 }
               },
               {
@@ -776,7 +780,7 @@
                       "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
                     },
                     "observers": {
-                      "buttonSelected": "@view/signup"
+                      "buttonSelected": "@view/signup;"
                     }
                   }
                 ]
