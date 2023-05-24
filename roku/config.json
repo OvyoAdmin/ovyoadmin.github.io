@@ -126,7 +126,7 @@
   },
   "main": {
     "settings": {
-      "homePage": "@view/home",
+      "homePage": "@view/HomeNew",
       "landingPage": "@view/authOptions",
       "languageCode": "de"
     }
@@ -458,7 +458,7 @@
                 "type": "Label",
                 "fields": {
                   "id": "signinSignupLabel",
-                  "font": "font:LargeBoldSystemFont",
+                  "font": "@font/DevantMedium",
                   "text": "SIGN IN / SIGN UP USING REMOTE",
                   "width": "1120",
                   "vertAlign": "center",
@@ -470,7 +470,7 @@
                 "type": "Label",
                 "fields": {
                   "id": "signinSignupDescriptionLabel",
-                  "font": "font:SmallestSystemFont",
+                  "font": "@font/BrandonGrotesqueBoldWeight32",
                   "text": "Use your remote to sign in with your existing account Or Sign up",
                   "width": "1120",
                   "height": "32",
@@ -523,20 +523,9 @@
                 "fields": {
                   "id": "landingSigninButton",
                   "text": "SIGN IN",
-                  "height": "60",
-                  "iconUri": "S://",
-                  "maxWidth": "230",
-                  "minWidth": "230",
                   "focusable": "true",
-                  "textcolor": "#FFFFFF",
-                  "focusBitmapUri": "pkg:/images/green_image.9.png",
-                  "focusedIconUri": "S://",
                   "horizFocusable": "true",
-                  "backgroundColor": "#00000000",
-                  "focusedTextColor": "#FFFFFF",
-                  "showFocusFootprint": "true",
-                  "backgroundFocusedColor": "#00000000",
-                  "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
+                  "@res": "@style/authOptionsButtons"
                 },
                 "observers": {
                   "buttonSelected": "@view/signinSignup;"
@@ -547,20 +536,9 @@
                 "fields": {
                   "id": "landingSignupButton",
                   "text": "SIGN UP",
-                  "height": "60",
-                  "iconUri": "S://",
-                  "maxWidth": "230",
-                  "minWidth": "230",
                   "focusable": "false",
-                  "textcolor": "#FFFFFF",
-                  "focusBitmapUri": "pkg:/images/green_image.9.png",
-                  "focusedIconUri": "S://",
                   "horizFocusable": "true",
-                  "backgroundColor": "#00000000",
-                  "focusedTextColor": "#FFFFFF",
-                  "showFocusFootprint": "true",
-                  "backgroundFocusedColor": "#00000000",
-                  "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
+                  "@res": "@style/authOptionsButtons"
                 },
                 "observers": {
                   "buttonSelected": "@view/signup;"
@@ -613,19 +591,19 @@
                 "type": "Label",
                 "fields": {
                   "id": "signinSignupLabel",
-                  "font": "font:LargeBoldSystemFont",
+                  "font": "@font/DevantMedium",
                   "text": "SIGN IN / SIGN UP USING REMOTE",
                   "width": "1120",
                   "vertAlign": "center",
                   "horizAlign": "center",
-                  "translation": "[400, 220]"
+                  "translation": "[400, 202]"
                 }
               },
               {
                 "type": "Label",
                 "fields": {
                   "id": "signinSignupDescriptionLabel",
-                  "font": "font:SmallestSystemFont",
+                  "font": "@font/BrandonGrotesqueBoldWeight32",
                   "text": "Use your remote to sign in with your existing account Or Sign up",
                   "width": "1120",
                   "height": "32",
@@ -638,7 +616,7 @@
                 "type": "Label",
                 "fields": {
                   "id": "errorTextLabel",
-                  "font": "font:MediumBoldSystemFont",
+                  "font": "@font/BrandonGrotesqueBoldWeight32",
                   "text": "@error/message.message",
                   "color": "#FF0000",
                   "width": "1720",
@@ -693,7 +671,7 @@
                   "text": "@channelStoreData/userData.email",
                   "clearOnDownKey": "false",
                   "hintText": "Email ID",
-                  "active": "true",                 
+                  "active": "true",
                   "focusable": "true",
                   "height": "86",
                   "width": "600",
@@ -741,19 +719,8 @@
                     "fields": {
                       "id": "signinButton",
                       "text": "SIGN IN",
-                      "height": "76",
-                      "iconUri": "S://",
-                      "maxWidth": "230",
-                      "minWidth": "230",
-                      "textcolor": "#FFFFFF",
-                      "focusBitmapUri": "pkg:/images/green_image.9.png",
-                      "focusedIconUri": "S://",
                       "horizFocusable": "true",
-                      "backgroundColor": "#00000000",
-                      "focusedTextColor": "#FFFFFF",
-                      "showFocusFootprint": "true",
-                      "backgroundFocusedColor": "#00000000",
-                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
+                      "@res": "@style/authOptionsButtons"
                     },
                     "observers": {
                       "buttonSelected": "@auth/signIn(@view/home)"
@@ -764,20 +731,9 @@
                     "fields": {
                       "id": "signupButton",
                       "text": "SIGN UP",
-                      "height": "76",
-                      "iconUri": "S://",
-                      "maxWidth": "230",
-                      "minWidth": "230",
                       "focusable": "false",
-                      "textcolor": "#FFFFFF",
-                      "focusBitmapUri": "pkg:/images/green_image.9.png",
-                      "focusedIconUri": "S://",
                       "horizFocusable": "true",
-                      "backgroundColor": "#00000000",
-                      "focusedTextColor": "#FFFFFF",
-                      "showFocusFootprint": "true",
-                      "backgroundFocusedColor": "#00000000",
-                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
+                      "@res": "@style/authOptionsButtons"
                     },
                     "observers": {
                       "buttonSelected": "@view/signup;"
@@ -789,8 +745,10 @@
                 "type": "OvyButton",
                 "fields": {
                   "id": "forgotPasswordButton",
-                  "text": "Forgot Password",
+                  "text": "Forgot Password?",
                   "height": "30",
+                  "maxWidth": "310",
+                  "minWidth": "310",
                   "states": "unfocued, focused",
                   "iconUri": "S://",
                   "focusable": "true",
@@ -801,7 +759,9 @@
                   "focusedTextColor": "#00FF00",
                   "showFocusFootprint": "false",
                   "backgroundFocusedColor": "#00000000",
-                  "focusFootprintBitmapUri": "S://"
+                  "focusFootprintBitmapUri": "S://",
+                  "textFont": "@font/BrandonGrotesqueBoldWeight32",
+                  "focusedTextFont": "@font/BrandonGrotesqueBoldWeight32"
                 }
               },
               {
@@ -809,7 +769,7 @@
                 "fields": {
                   "id": "lineRectangle",
                   "color": "#FFFFFF",
-                  "width": "324",
+                  "width": "224",
                   "height": "2"
                 }
               }
