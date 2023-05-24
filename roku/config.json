@@ -221,7 +221,6 @@
       "interface": {}
     },
     "details": {
-      "interface": {},
       "layout": {
         "type": "OvyView",
         "fields": {
@@ -234,25 +233,25 @@
               {
                 "type": "Poster",
                 "fields": {
+                  "uri": "@data/img",
                   "width": 1920,
-                  "height": 1080,
-                  "uri": "@data/img"
+                  "height": 1080
                 }
               },
               {
                 "type": "Poster",
                 "fields": {
+                  "uri": "pkg:/images/grad_smooth_left_to_right.png",
                   "width": 1920,
-                  "height": 1080,
-                  "uri": "pkg:/images/grad_smooth_left_to_right.png"
+                  "height": 1080
                 }
               },
               {
                 "type": "Poster",
                 "fields": {
+                  "uri": "pkg:/images/grad_smooth_bottom_to_top.png",
                   "width": 1920,
-                  "height": 1080,
-                  "uri": "pkg:/images/grad_smooth_bottom_to_top.png"
+                  "height": 1080
                 }
               }
             ]
@@ -281,58 +280,60 @@
               {
                 "type": "Label",
                 "fields": {
-                  "width": 960,
                   "id": "title",
-                  "font": "font:LargeBoldSystemFont",
-                  "text": "@data/title"
+                  "font": "@font/DevantMedium",
+                  "text": "@data/title",
+                  "width": 960
                 }
               },
               {
                 "type": "Label",
                 "fields": {
-                  "width": 960,
                   "id": "subtitle",
-                  "font": "font:SmallestSystemFont",
-                  "text": "{@data/ageLimit} | {@data/seasonsCount} Seasons | {@data/genre} | {@data/language}"
+                  "font": "@font/BrandonGrotesqueBold",
+                  "text": "{@data/ageLimit} | {@data/seasonsCount} Seasons | {@data/genre} | {@data/language}",
+                  "width": 960,
+                  "opacity": 0.8
                 }
               },
               {
-                "type": "Label",
+                "type": "OvyLabel",
                 "fields": {
-                  "width": 960,
                   "id": "episodeTitle",
-                  "font": "font:MediumSystemFont",
+                  "font": "@font/BrandonGrotesqueBold",
+                  "text": "Season {@data/playbackHistory.seasonNumber} Episode {@data/playbackHistory.episodeNumber} {@data/playbackHistory.title}",
                   "wrap": true,
-                  "text": "Season {@data/playbackHistory.seasonNumber} Episode {@data/playbackHistory.episodeNumber} {@data/playbackHistory.title}"
+                  "width": 960,
+                  "opacity": 0.8
                 }
               },
               {
                 "type": "Label",
                 "fields": {
                   "id": "description",
-                  "width": 1200,
-                  "height": 72,
+                  "font": "@font/BrandonGrotesqueRegular",
+                  "text": "@data/longDescription",
                   "wrap": true,
                   "color": "#CCCCCC",
-                  "font": "font:SmallestSystemFont",
-                  "text": "@data/longDescription"
+                  "width": 1200,
+                  "height": 72
                 }
               },
               {
                 "type": "OvyButton",
                 "fields": {
-                  "@res": "@style/labelButton",
                   "id": "more",
-                  "minWidth": 120,
-                  "unfocusedOpacity": "0.3",
-                  "focusedTextColor": "0xa0b033ff",
+                  "@res": "@style/labelButton",
+                  "text": "Show more",
                   "states": "collapse, expand",
-                  "text": "Show more"
+                  "minWidth": 120,
+                  "focusedTextColor": "0xa0b033ff",
+                  "unfocusedOpacity": "0.3"
                 },
                 "observers": {
                   "state": {
-                    "collapse": "@field/more(@text/Show less);@anim/labelExpandAnim(@fieldToInterp/description.height, @keyValue/[72|360])",
-                    "expand": "@field/more(@text/Show more);@anim/labelExpandAnim(@fieldToInterp/description.height, @keyValue/[360|72])"
+                    "expand": "@field/more(@text/Show more);@anim/labelExpandAnim(@fieldToInterp/description.height, @keyValue/[360|72])",
+                    "collapse": "@field/more(@text/Show less);@anim/labelExpandAnim(@fieldToInterp/description.height, @keyValue/[72|360])"
                   }
                 }
               },
@@ -340,19 +341,21 @@
                 "type": "OvyRowList",
                 "fields": {
                   "id": "seasonsList",
-                  "itemComponentName": "@layout/EpisodeRowListItem",
+                  "dataRes": "@data/seasons",
                   "numRows": 3,
                   "itemSize": "[ 1920, 150 ]",
-                  "rowItemSize": "[[266, 150]]",
                   "itemSpacing": "[ 0, 112 ]",
-                  "rowItemSpacing": "[ [30, 0] ]",
-                  "rowLabelOffset": "[ [0, 30] ]",
-                  "vertFocusAnimationStyle": "floatingFocus",
+                  "rowItemSize": "[[266, 150]]",
+                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
+                  "focusBitmapBlendColor": "#35E716",
+                  "rowLabelFont": "@font/BrandonGrotesqueBoldWeight28",
                   "showRowLabel": [
                     true
                   ],
-                  "rowLabelFont": "font:SmallestBoldSystemFont",
-                  "dataRes": "@data/seasons"
+                  "rowItemSpacing": "[ [30, 0] ]",
+                  "rowLabelOffset": "[ [0, 30] ]",
+                  "itemComponentName": "@layout/EpisodeRowListItem",
+                  "vertFocusAnimationStyle": "floatingFocus"
                 },
                 "observers": {
                   "rowItemSelected": "@view/OvyVideo(@fields/@data/player.args)"
@@ -361,9 +364,9 @@
               {
                 "type": "Label",
                 "fields": {
-                  "width": 740,
+                  "font": "@font/BrandonGrotesqueBoldWeight28",
                   "text": "CAST & CREW",
-                  "font": "font:MediumBoldSystemFont",
+                  "width": 740,
                   "maxLines": 1
                 }
               },
@@ -371,27 +374,29 @@
                 "type": "OvyMarkupGrid",
                 "fields": {
                   "id": "castAndCrew",
-                  "itemComponentName": "CastnCrewItem",
+                  "dataRes": "@data/castAndCrew",
+                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
+                  "focusBitmapBlendColor": "#35E716",
+                  "numRows": 1,
                   "itemSize": [
                     300,
                     290
                   ],
                   "numColumns": 10,
-                  "numRows": 1,
                   "itemSpacing": [
                     20,
                     20
                   ],
-                  "dataRes": "@data/castAndCrew"
+                  "itemComponentName": "CastnCrewItem"
                 }
               },
               {
                 "type": "Label",
                 "fields": {
-                  "width": 740,
                   "id": "aboutLable",
+                  "font": "@font/BrandonGrotesqueBoldWeight28",
                   "text": "ABOUT",
-                  "font": "font:MediumBoldSystemFont",
+                  "width": 740,
                   "maxLines": 1
                 }
               },
@@ -399,10 +404,11 @@
                 "type": "Label",
                 "fields": {
                   "id": "descriptionAbout",
+                  "font": "@font/BrandonGrotesqueBoldWeight26",
                   "text": "@data/longDescription",
-                  "width": 1658,
                   "wrap": true,
-                  "font": "font:SmallestBoldSystemFont"
+                  "width": 1658,
+                  "lineSpacing": 1
                 }
               },
               {
@@ -415,7 +421,8 @@
             ]
           }
         ]
-      }
+      },
+      "interface": {}
     },
     "authOptions": {
       "layout": {
