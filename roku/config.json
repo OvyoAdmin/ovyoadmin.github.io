@@ -128,7 +128,7 @@
     "settings": {
       "homePage": "@view/HomeNew",
       "landingPage": "@view/authOptions",
-      "languageCode": "de"
+      "languageCode": "en"
     }
   },
   "views": {
@@ -276,7 +276,6 @@
                 4,
                 64
               ]
-              
             },
             "children": [
               {
@@ -326,7 +325,7 @@
                 "fields": {
                   "id": "more",
                   "@res": "@style/labelButton",
-                  "text": "Show more",
+                  "text": "@string/showMore",
                   "states": "collapse, expand",
                   "minWidth": 120,
                   "focusedTextColor": "0xa0b033ff",
@@ -348,15 +347,15 @@
                   "itemSize": "[ 1920, 150 ]",
                   "itemSpacing": "[ 0, 112 ]",
                   "rowItemSize": "[[266, 150]]",
-                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
-                  "focusBitmapBlendColor": "#35E716",
                   "rowLabelFont": "@font/BrandonGrotesqueBoldWeight28",
                   "showRowLabel": [
                     true
                   ],
+                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
                   "rowItemSpacing": "[ [30, 0] ]",
                   "rowLabelOffset": "[ [0, 30] ]",
                   "itemComponentName": "@layout/EpisodeRowListItem",
+                  "focusBitmapBlendColor": "#35E716",
                   "vertFocusAnimationStyle": "floatingFocus"
                 },
                 "observers": {
@@ -368,7 +367,7 @@
                 "fields": {
                   "id": "castNCrewLabel",
                   "font": "@font/BrandonGrotesqueBoldWeight28",
-                  "text": "CAST & CREW",
+                  "text": "@string/cast&Crew",
                   "width": 740,
                   "maxLines": 1
                 }
@@ -378,8 +377,6 @@
                 "fields": {
                   "id": "castAndCrew",
                   "dataRes": "@data/castAndCrew",
-                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
-                  "focusBitmapBlendColor": "#35E716",
                   "numRows": 1,
                   "itemSize": [
                     300,
@@ -390,7 +387,9 @@
                     20,
                     20
                   ],
+                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
                   "itemComponentName": "CastnCrewItem",
+                  "focusBitmapBlendColor": "#35E716",
                   "horizFocusAnimationStyle": "fixedFocus"
                 }
               },
@@ -399,7 +398,7 @@
                 "fields": {
                   "id": "aboutLable",
                   "font": "@font/BrandonGrotesqueBoldWeight28",
-                  "text": "ABOUT",
+                  "text": "@string/about",
                   "width": 740,
                   "maxLines": 1
                 }
@@ -419,8 +418,8 @@
                 "type": "Rectangle",
                 "fields": {
                   "id": "paddingDummyScroll",
-                  "focusable": true,
-                  "height": 200
+                  "height": 200,
+                  "focusable": true
                 }
               }
             ]
@@ -457,12 +456,11 @@
                 "fields": {
                   "id": "logoPoster",
                   "uri": "pkg:/images/white-logo.png",
-                  "width": "214",
-                  "height": "144",
-                  "loadWidth": "214",
-                  "blendColor": "#006A00",
-                  "loadHeight": "144",
-                  "translation": "[853, 50]",
+                  "width": "364",
+                  "height": "164",
+                  "loadWidth": "364",
+                  "loadHeight": "164",
+                  "translation": "[778, 50]",
                   "loadDisplayMode": "limitSize"
                 }
               },
@@ -471,7 +469,7 @@
                 "fields": {
                   "id": "signinSignupLabel",
                   "font": "@font/DevantMedium",
-                  "text": "SIGN IN / SIGN UP USING REMOTE",
+                  "text": "@string/signInSignUpLabel",
                   "width": "1120",
                   "vertAlign": "center",
                   "horizAlign": "center",
@@ -483,9 +481,9 @@
                 "fields": {
                   "id": "signinSignupDescriptionLabel",
                   "font": "@font/BrandonGrotesqueBoldWeight32",
-                  "text": "Use your remote to sign in with your existing account Or Sign up",
+                  "text": "@string/signInSignUpDesc",
+                  "wrap": "true",
                   "width": "1120",
-                  "height": "32",
                   "vertAlign": "center",
                   "horizAlign": "center",
                   "translation": "[400, 418]"
@@ -534,10 +532,11 @@
                 "type": "OvyButton",
                 "fields": {
                   "id": "landingSigninButton",
-                  "text": "SIGN IN",
+                  "@res": "@style/authOptionsButtons",
+                  "text": "@string/signIn",
+                  "maxWidth": "260",
                   "focusable": "true",
-                  "horizFocusable": "true",
-                  "@res": "@style/authOptionsButtons"
+                  "horizFocusable": "true"
                 },
                 "observers": {
                   "buttonSelected": "@view/signinSignup;"
@@ -547,10 +546,11 @@
                 "type": "OvyButton",
                 "fields": {
                   "id": "landingSignupButton",
-                  "text": "SIGN UP",
+                  "@res": "@style/authOptionsButtons",
+                  "text": "@string/signUp",
+                  "maxWidth": "260",
                   "focusable": "false",
-                  "horizFocusable": "true",
-                  "@res": "@style/authOptionsButtons"
+                  "horizFocusable": "true"
                 },
                 "observers": {
                   "buttonSelected": "@view/signup;"
@@ -590,12 +590,11 @@
                 "fields": {
                   "id": "logoPoster",
                   "uri": "pkg:/images/white-logo.png",
-                  "width": "214",
-                  "height": "144",
-                  "loadWidth": "214",
-                  "blendColor": "#006A00",
-                  "loadHeight": "144",
-                  "translation": "[853, 50]",
+                  "width": "364",
+                  "height": "164",
+                  "loadWidth": "364",
+                  "loadHeight": "164",
+                  "translation": "[778, 50]",
                   "loadDisplayMode": "limitSize"
                 }
               },
@@ -604,7 +603,7 @@
                 "fields": {
                   "id": "signinSignupLabel",
                   "font": "@font/DevantMedium",
-                  "text": "SIGN IN / SIGN UP USING REMOTE",
+                  "text": "@string/signInSignUpLabel",
                   "width": "1120",
                   "vertAlign": "center",
                   "horizAlign": "center",
@@ -616,9 +615,9 @@
                 "fields": {
                   "id": "signinSignupDescriptionLabel",
                   "font": "@font/BrandonGrotesqueBoldWeight32",
-                  "text": "Use your remote to sign in with your existing account Or Sign up",
+                  "text": "@string/signInSignUpDesc",
+                  "wrap": "true",
                   "width": "1120",
-                  "height": "32",
                   "vertAlign": "center",
                   "horizAlign": "center",
                   "translation": "[400, 304]"
@@ -682,7 +681,7 @@
                   "id": "emailTextBox",
                   "text": "@channelStoreData/userData.email",
                   "clearOnDownKey": "false",
-                  "hintText": "Email ID",
+                  "hintText": "@string/emailID",
                   "active": "true",
                   "focusable": "true",
                   "height": "86",
@@ -701,7 +700,7 @@
                 "fields": {
                   "id": "passwordTextBox",
                   "clearOnDownKey": "false",
-                  "hintText": "Password",
+                  "hintText": "@string/password",
                   "secureMode": "true",
                   "focusable": "true",
                   "height": "86",
@@ -730,9 +729,10 @@
                     "type": "OvyButton",
                     "fields": {
                       "id": "signinButton",
-                      "text": "SIGN IN",
-                      "horizFocusable": "true",
-                      "@res": "@style/authOptionsButtons"
+                      "@res": "@style/authOptionsButtons",
+                      "text": "@string/signIn",
+                      "maxWidth": "260",
+                      "horizFocusable": "true"
                     },
                     "observers": {
                       "buttonSelected": "@auth/signIn(@view/HomeNew)"
@@ -742,10 +742,11 @@
                     "type": "OvyButton",
                     "fields": {
                       "id": "signupButton",
-                      "text": "SIGN UP",
+                      "@res": "@style/authOptionsButtons",
+                      "text": "@string/signUp",
+                      "maxWidth": "260",
                       "focusable": "false",
-                      "horizFocusable": "true",
-                      "@res": "@style/authOptionsButtons"
+                      "horizFocusable": "true"
                     },
                     "observers": {
                       "buttonSelected": "@view/signup;"
@@ -757,23 +758,23 @@
                 "type": "OvyButton",
                 "fields": {
                   "id": "forgotPasswordButton",
-                  "text": "Forgot Password?",
+                  "text": "@string/forgotPassword",
                   "height": "30",
-                  "maxWidth": "310",
-                  "minWidth": "310",
                   "states": "unfocued, focused",
                   "iconUri": "S://",
+                  "maxWidth": "480",
+                  "minWidth": "310",
+                  "textFont": "@font/BrandonGrotesqueBoldWeight32",
                   "focusable": "true",
                   "textcolor": "#FFFFFF",
                   "focusBitmapUri": "S://",
                   "focusedIconUri": "S://",
                   "backgroundColor": "#00000000",
+                  "focusedTextFont": "@font/BrandonGrotesqueBoldWeight32",
                   "focusedTextColor": "#00FF00",
                   "showFocusFootprint": "false",
                   "backgroundFocusedColor": "#00000000",
-                  "focusFootprintBitmapUri": "S://",
-                  "textFont": "@font/BrandonGrotesqueBoldWeight32",
-                  "focusedTextFont": "@font/BrandonGrotesqueBoldWeight32"
+                  "focusFootprintBitmapUri": "S://"
                 }
               },
               {
