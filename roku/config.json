@@ -74,43 +74,7 @@
           "text": "@content[i]/shortDescription"
         },
         "enableThumbnails": true,
-        "thumbnailsConfig": {
-          "custom": {
-            "urls": [
-              "pkg:/images/test/thumbs/img001.jpg",
-              "pkg:/images/test/thumbs/img002.jpg",
-              "pkg:/images/test/thumbs/img003.jpg",
-              "pkg:/images/test/thumbs/img004.jpg",
-              "pkg:/images/test/thumbs/img005.jpg",
-              "pkg:/images/test/thumbs/img006.jpg",
-              "pkg:/images/test/thumbs/img007.jpg",
-              "pkg:/images/test/thumbs/img008.jpg",
-              "pkg:/images/test/thumbs/img009.jpg",
-              "pkg:/images/test/thumbs/img010.jpg",
-              "pkg:/images/test/thumbs/img011.jpg",
-              "pkg:/images/test/thumbs/img012.jpg",
-              "pkg:/images/test/thumbs/img013.jpg",
-              "pkg:/images/test/thumbs/img014.jpg",
-              "pkg:/images/test/thumbs/img015.jpg",
-              "pkg:/images/test/thumbs/img016.jpg",
-              "pkg:/images/test/thumbs/img017.jpg",
-              "pkg:/images/test/thumbs/img018.jpg",
-              "pkg:/images/test/thumbs/img019.jpg",
-              "pkg:/images/test/thumbs/img020.jpg",
-              "pkg:/images/test/thumbs/img021.jpg",
-              "pkg:/images/test/thumbs/img022.jpg",
-              "pkg:/images/test/thumbs/img023.jpg",
-              "pkg:/images/test/thumbs/img024.jpg",
-              "pkg:/images/test/thumbs/img025.jpg",
-              "pkg:/images/test/thumbs/img026.jpg",
-              "pkg:/images/test/thumbs/img027.jpg",
-              "pkg:/images/test/thumbs/img028.jpg",
-              "pkg:/images/test/thumbs/img029.jpg",
-              "pkg:/images/test/thumbs/img030.jpg"
-            ],
-            "interval": 20
-          }
-        },
+        "thumbnailsConfig": "@content[i]/content.thumbnails",
         "progressbarFields": {
           "width": 1600,
           "height": 10,
@@ -225,7 +189,7 @@
         "type": "OvyView",
         "fields": {
           "id": "detailsView",
-          "api": "@api/details.getDetailedLocal",
+          "api": "@api/details.getSeries",
           "backgroundImageUri": "",
           "pageScrollVertAnim": "@anim/pageScrollVertAnim",
           "pageScrollVertMarkers": "[seasonsList, castAndCrew]"
@@ -1175,3 +1139,4 @@
     }
   }
 }
+
