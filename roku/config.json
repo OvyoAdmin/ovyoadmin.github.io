@@ -337,10 +337,11 @@
                             14,
                             0
                           ],
-                          "font": "font:SmallestSystemFont",
+                          "font": "@font/BrandonGrotesqueRegular",
                           "width": 300,
                           "height": 60,
-                          "text": "@data/details.playbackHistory.timeleft"
+                          "text": "@data/details.playbackHistory.timeleft",
+                          "opacity": 0.8
                         }
                       }
                     ]
