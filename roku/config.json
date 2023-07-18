@@ -236,8 +236,9 @@
               "itemSpacings": [
                 16,
                 48,
-                24,
-                4,
+                16,
+                28,
+                0,
                 32,
                 32,
                 4,
@@ -273,6 +274,23 @@
                   "wrap": true,
                   "width": 960,
                   "opacity": 0.8
+                }
+              },
+              {
+                "type": "OvyLabel",
+                "fields": {
+                  "id": "descriptionLabel",
+                  "font": "@font/BrandonGrotesqueRegular",
+                  "text": "@data/shortDescription",
+                  "wrap": true,
+                  "color": "#FFFFFF",
+                  "width": 900,
+                  "height": 90,
+                  "opacity": 0.8,
+                  "numLines": 2,
+                  "horizAlign": "left",
+                  "lineSpacing": 1,
+                  "ellipsizeOnBoundary": true
                 }
               },
               {
@@ -1140,4 +1158,3 @@
     }
   }
 }
-
