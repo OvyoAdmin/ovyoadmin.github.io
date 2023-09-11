@@ -243,7 +243,9 @@
                 32,
                 4,
                 64
-              ]
+              ],
+              "horizAlignment": "custom",
+              "layoutDirection": "vert"
             },
             "children": [
               {
@@ -299,7 +301,7 @@
                   "id": "buttonGroup",
                   "layoutDirection": "vert",
                   "translation": [
-                    32,
+                    0,
                     64
                   ],
                   "itemSpacings": [
@@ -431,8 +433,8 @@
                   "vertFocusAnimationStyle": "floatingFocus"
                 },
                 "observers": {
-                  "rowItemSelected": "@view/OvyVideo(@fields/@data/player.args)",
-                  "rowItemFocused": ""
+                  "rowItemFocused": "",
+                  "rowItemSelected": "@view/episodeDetails(@content[i])"
                 }
               },
               {
@@ -464,6 +466,9 @@
                   ],
                   "itemComponentName": "CastnCrewItem",
                   "horizFocusAnimationStyle": "fixedFocus"
+                },
+                "observers": {
+                  "itemSelected": "@view/CastCrew"
                 }
               },
               {
