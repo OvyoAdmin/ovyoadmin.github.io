@@ -434,7 +434,7 @@
                 },
                 "observers": {
                   "rowItemFocused": "",
-                  "rowItemSelected": "@view/episodeDetails(@content[i])"
+                  "rowItemSelected": "@view/OvyVideo(@fields/@data/player.args)"
                 }
               },
               {
