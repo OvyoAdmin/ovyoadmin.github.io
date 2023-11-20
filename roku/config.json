@@ -202,7 +202,7 @@
                 "type": "Poster",
                 "fields": {
                   "id": "bgImage",
-                  "uri": "@data/img",
+                  "uri": "@data/data.banner",
                   "width": 1920,
                   "height": 1080
                 }
@@ -242,7 +242,7 @@
                 32,
                 32,
                 4,
-                64
+                0
               ],
               "horizAlignment": "custom",
               "layoutDirection": "vert"
@@ -253,7 +253,7 @@
                 "fields": {
                   "id": "title",
                   "font": "@font/DevantMedium",
-                  "text": "@data/title",
+                  "text": "@data/data.title",
                   "width": 960
                 }
               },
@@ -262,7 +262,7 @@
                 "fields": {
                   "id": "subtitle",
                   "font": "@font/BrandonGrotesqueBold",
-                  "text": "{@data/ageLimit} | {@data/seasonsCount} Seasons | {@data/genre} | {@data/language}",
+                  "text": "{@data/data.rating} | {@data/data.seasonsCount} Seasons | {@data/data.genre} | {@data/data.languages[0]}",
                   "width": 960,
                   "opacity": 0.8
                 }
@@ -283,7 +283,7 @@
                 "fields": {
                   "id": "descriptionLabel",
                   "font": "@font/BrandonGrotesqueRegular",
-                  "text": "@data/shortDescription",
+                  "text": "@data/data.shortDescription",
                   "wrap": true,
                   "color": "#FFFFFF",
                   "width": 900,
@@ -299,50 +299,51 @@
                 "type": "OvyLayoutGroup",
                 "fields": {
                   "id": "buttonGroup",
-                  "layoutDirection": "vert",
                   "translation": [
                     0,
                     64
                   ],
                   "itemSpacings": [
                     7,
-                    -32
-                  ]
+                    -32,
+                    28
+                  ],
+                  "layoutDirection": "vert"
                 },
                 "children": [
                   {
                     "type": "OvyLayoutGroup",
                     "fields": {
                       "id": "resumeAndRemainingTimeButtonGrp",
-                      "layoutDirection": "horiz",
                       "translation": [
                         32,
                         64
                       ],
                       "itemSpacings": [
                         20
-                      ]
+                      ],
+                      "layoutDirection": "horiz"
                     },
                     "children": [
                       {
                         "type": "OvyButton",
                         "fields": {
-                          "@res": "@style/labelButton",
                           "id": "playOrResumeButton",
-                          "minWidth": 190,
+                          "@res": "@style/labelButton",
                           "height": 60,
+                          "states": "play, resume",
                           "iconUri": "pkg:/images/play.png",
-                          "focusedIconUri": "pkg:/images/play.png",
-                          "showFocusFootprint": true,
-                          "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png",
-                          "focusBitmapUri": "pkg:/images/green_image.9.png",
-                          "textcolor": "#FFFFFF",
-                          "focusedTextColor": "#FFFFFF",
-                          "focusable": true,
-                          "horizFocusable": true,
+                          "minWidth": 190,
                           "textFont": "@font/BrandonGrotesqueBlack",
+                          "focusable": true,
+                          "textcolor": "#FFFFFF",
+                          "focusBitmapUri": "pkg:/images/green_image.9.png",
+                          "focusedIconUri": "pkg:/images/play.png",
+                          "horizFocusable": true,
                           "focusedTextFont": "@font/BrandonGrotesqueBlack",
-                          "states": "play, resume"
+                          "focusedTextColor": "#FFFFFF",
+                          "showFocusFootprint": true,
+                          "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
                         },
                         "observers": {
                           "buttonSelected": ""
@@ -352,16 +353,16 @@
                         "type": "Label",
                         "fields": {
                           "id": "remainingText",
+                          "font": "@font/BrandonGrotesqueRegular",
+                          "text": "@data/details.playbackHistory.timeleft",
+                          "width": 300,
+                          "height": 60,
+                          "opacity": 0.8,
                           "vertAlign": "center",
                           "translation": [
                             14,
                             0
-                          ],
-                          "font": "@font/BrandonGrotesqueRegular",
-                          "width": 300,
-                          "height": 60,
-                          "text": "@data/details.playbackHistory.timeleft",
-                          "opacity": 0.8
+                          ]
                         }
                       }
                     ]
@@ -372,39 +373,60 @@
                       "id": "progress",
                       "width": "215",
                       "height": "5",
-                      "backgroundBarColor": "#808080",
-                      "backgroundBarOpacity": "0.7",
                       "barColor": "#119B15",
                       "barOpacity": "1",
-                      "scrubberWidth": "0",
-                      "scrubberHeight": "0",
-                      "scrubberFocusedIconUri": "",
-                      "scrubberIconUri": "",
-                      "scrubberFocusable": false,
                       "translation": [
                         3,
                         125
-                      ]
+                      ],
+                      "scrubberWidth": "0",
+                      "scrubberHeight": "0",
+                      "scrubberIconUri": "",
+                      "scrubberFocusable": false,
+                      "backgroundBarColor": "#808080",
+                      "backgroundBarOpacity": "0.7",
+                      "scrubberFocusedIconUri": ""
                     }
                   },
                   {
                     "type": "Button",
                     "fields": {
                       "id": "playFromBeginningButton",
-                      "iconUri": "pkg:/images/play.png",
-                      "focusedIconUri": "pkg:/images/play.png",
-                      "minWidth": 190,
-                      "height": 60,
-                      "showFocusFootprint": true,
-                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png",
-                      "focusBitmapUri": "pkg:/images/green_image.9.png",
                       "text": "@string/playFromBeginning",
-                      "textcolor": "#FFFFFF",
-                      "focusedTextColor": "#FFFFFF",
-                      "focusable": true,
-                      "horizFocusable": true,
+                      "height": 60,
+                      "iconUri": "pkg:/images/play.png",
+                      "minWidth": 190,
                       "textFont": "@font/BrandonGrotesqueBlack",
-                      "focusedTextFont": "@font/BrandonGrotesqueBlack"
+                      "focusable": true,
+                      "textcolor": "#FFFFFF",
+                      "focusBitmapUri": "pkg:/images/green_image.9.png",
+                      "focusedIconUri": "pkg:/images/play.png",
+                      "horizFocusable": true,
+                      "focusedTextFont": "@font/BrandonGrotesqueBlack",
+                      "focusedTextColor": "#FFFFFF",
+                      "showFocusFootprint": true,
+                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
+                    },
+                    "observers": {
+                      "buttonSelected": ""
+                    }
+                  },
+                  {
+                    "type": "Button",
+                    "fields": {
+                      "id": "watchListButton",
+                      "height": 60,
+                      "iconUri": "pkg:/images/addWatchList.png",
+                      "minWidth": 217,
+                      "textFont": "@font/BrandonGrotesqueBlack",
+                      "focusable": true,
+                      "textcolor": "#FFFFFF",
+                      "focusBitmapUri": "pkg:/images/green_image.9.png",
+                      "focusedIconUri": "pkg:/images/addWatchList.png",
+                      "focusedTextFont": "@font/BrandonGrotesqueBlack",
+                      "focusedTextColor": "#FFFFFF",
+                      "showFocusFootprint": true,
+                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
                     },
                     "observers": {
                       "buttonSelected": ""
@@ -416,25 +438,24 @@
                 "type": "OvyRowList",
                 "fields": {
                   "id": "seasonsList",
-                  "dataRes": "@data/seasons",
                   "numRows": 3,
                   "itemSize": "[ 1920, 150 ]",
                   "itemSpacing": "[ 0, 112 ]",
                   "rowItemSize": "[[266, 150]]",
-                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
-                  "focusBitmapBlendColor": "#35E716",
                   "rowLabelFont": "@font/BrandonGrotesqueBoldWeight28",
                   "showRowLabel": [
                     true
                   ],
+                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
                   "rowItemSpacing": "[ [30, 0] ]",
                   "rowLabelOffset": "[ [0, 30] ]",
                   "itemComponentName": "@layout/EpisodeRowListItem",
+                  "focusBitmapBlendColor": "#35E716",
                   "vertFocusAnimationStyle": "floatingFocus"
                 },
                 "observers": {
                   "rowItemFocused": "",
-                  "rowItemSelected": "@view/OvyVideo(@fields/@data/player.args)"
+                  "rowItemSelected": "@view/episodeDetails(@content[i])"
                 }
               },
               {
@@ -451,9 +472,7 @@
                 "type": "OvyMarkupGrid",
                 "fields": {
                   "id": "castAndCrew",
-                  "dataRes": "@data/castAndCrew",
-                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
-                  "focusBitmapBlendColor": "#35E716",
+                  "dataRes": "@data/data.castAndCrew",
                   "numRows": 1,
                   "itemSize": [
                     300,
@@ -464,7 +483,9 @@
                     20,
                     20
                   ],
+                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
                   "itemComponentName": "CastnCrewItem",
+                  "focusBitmapBlendColor": "#35E716",
                   "horizFocusAnimationStyle": "fixedFocus"
                 },
                 "observers": {
@@ -486,7 +507,7 @@
                 "fields": {
                   "id": "descriptionAbout",
                   "font": "@font/BrandonGrotesqueBoldWeight26",
-                  "text": "@data/longDescription",
+                  "text": "@data/data.description",
                   "wrap": true,
                   "width": 1658,
                   "lineSpacing": 1
@@ -497,7 +518,7 @@
                 "fields": {
                   "id": "paddingDummyScroll",
                   "height": 200,
-                  "focusable": true
+                  "focusable": false
                 }
               }
             ]
@@ -758,38 +779,38 @@
                 "fields": {
                   "id": "emailTextBox",
                   "text": "@channelStoreData/userData.email",
-                  "clearOnDownKey": "false",
-                  "hintText": "@string/emailID",
-                  "active": "true",
-                  "focusable": "true",
-                  "height": "86",
                   "width": "600",
-                  "focusedTextColor": "#FFFFFF",
+                  "active": "true",
+                  "height": "86",
+                  "hintText": "@string/emailID",
+                  "focusable": "true",
                   "hintTextColor": "#515151",
+                  "renderEditBox": "true",
+                  "clearOnDownKey": "false",
+                  "focusedTextColor": "#FFFFFF",
                   "focusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
                   "unFocusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
                   "focusedBackgroundBlendColor": "#006A00",
-                  "unFocusedBackgroundBlendColor": "#FFFFFF",
-                  "renderEditBox": "true"
+                  "unFocusedBackgroundBlendColor": "#FFFFFF"
                 }
               },
               {
                 "type": "OvyTextEditBox",
                 "fields": {
                   "id": "passwordTextBox",
-                  "clearOnDownKey": "false",
-                  "hintText": "@string/password",
-                  "secureMode": "true",
-                  "focusable": "true",
-                  "height": "86",
                   "width": "600",
-                  "focusedTextColor": "#FFFFFF",
+                  "height": "86",
+                  "hintText": "@string/password",
+                  "focusable": "true",
+                  "secureMode": "true",
                   "hintTextColor": "#515151",
+                  "renderEditBox": "true",
+                  "clearOnDownKey": "false",
+                  "focusedTextColor": "#FFFFFF",
                   "focusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
                   "unFocusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
                   "focusedBackgroundBlendColor": "#006A00",
-                  "unFocusedBackgroundBlendColor": "#FFFFFF",
-                  "renderEditBox": "true"
+                  "unFocusedBackgroundBlendColor": "#FFFFFF"
                 }
               },
               {
