@@ -446,7 +446,6 @@
                   "showRowLabel": [
                     true
                   ],
-                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
                   "rowItemSpacing": "[ [30, 0] ]",
                   "rowLabelOffset": "[ [0, 30] ]",
                   "itemComponentName": "@layout/EpisodeRowListItem",
@@ -483,7 +482,6 @@
                     20,
                     20
                   ],
-                  "focusBitmapUri": "pkg:/images/rectangle_focus.9.png",
                   "itemComponentName": "CastnCrewItem",
                   "focusBitmapBlendColor": "#35E716",
                   "horizFocusAnimationStyle": "fixedFocus"
