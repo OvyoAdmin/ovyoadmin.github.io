@@ -464,6 +464,7 @@
                   "font": "@font/BrandonGrotesqueBoldWeight28",
                   "text": "@string/cast&Crew",
                   "width": 740,
+                  "height": 10,
                   "maxLines": 1
                 }
               },
@@ -487,7 +488,7 @@
                   "horizFocusAnimationStyle": "fixedFocus"
                 },
                 "observers": {
-                  "itemSelected": "@view/CastCrew"
+                  "itemSelected": "@view/CastCrew(@content[i])"
                 }
               },
               {
