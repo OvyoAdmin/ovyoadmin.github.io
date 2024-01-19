@@ -1,1185 +1,1185 @@
 {
   "api": {
-    "auth": {
-      "idm": {
-        "login": {
-          "uri": "http://httpbin.org/delay/3",
-          "body": {
-            "password": "",
-            "username": ""
-          },
-          "method": "GET",
-          "headers": {
-            "Content-Type": "application/json"
+      "auth": {
+          "idm": {
+              "login": {
+                  "uri": "http://httpbin.org/delay/3",
+                  "body": {
+                      "password": "",
+                      "username": ""
+                  },
+                  "method": "GET",
+                  "headers": {
+                      "Content-Type": "application/json"
+                  }
+              }
           }
-        }
-      }
-    },
-    "home": {
-      "getHomeData": {
-        "uri": "https://api.npoint.io/6c64c911f263716022db",
-        "method": "GET"
       },
-      "getCarouselData": {
-        "uri": "https://jsonkeeper.com/b/ZCZ0",
-        "method": "GET"
-      }
-    },
-    "details": {
-      "getDetailed": {
-        "uri": "https://ovyoadmin.github.io/roku/detailsview.json",
-        "method": "GET"
-      }
-    },
-    "analytics": {
-      "ga": {}
-    },
-    "backstage": {}
+      "home": {
+          "getHomeData": {
+              "uri": "https://api.npoint.io/6c64c911f263716022db",
+              "method": "GET"
+          },
+          "getCarouselData": {
+              "uri": "https://jsonkeeper.com/b/ZCZ0",
+              "method": "GET"
+          }
+      },
+      "details": {
+          "getDetailed": {
+              "uri": "https://ovyoadmin.github.io/roku/detailsview.json",
+              "method": "GET"
+          }
+      },
+      "analytics": {
+          "ga": {}
+      },
+      "backstage": {}
   },
   "data": {
-    "home": {
-      "carousel": {
-        "data": [
-          {
-            "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal1.jpg"
-          },
-          {
-            "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal2.jpg"
-          },
-          {
-            "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal3.jpg"
-          },
-          {
-            "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal4.jpg"
-          },
-          {
-            "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal5.jpg"
-          },
-          {
-            "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal6.jpg"
+      "home": {
+          "carousel": {
+              "data": [
+                  {
+                      "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal1.jpg"
+                  },
+                  {
+                      "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal2.jpg"
+                  },
+                  {
+                      "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal3.jpg"
+                  },
+                  {
+                      "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal4.jpg"
+                  },
+                  {
+                      "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal5.jpg"
+                  },
+                  {
+                      "uri": "https://roku-internal-project.s3.eu-west-2.amazonaws.com/images/carousal/carousal6.jpg"
+                  }
+              ]
           }
-        ]
+      },
+      "player": {
+          "args": {
+              "titleFields": {
+                  "text": "@content[i]/title"
+              },
+              "contentFields": {
+                  "url": "@content[i]/content.videos[0].url"
+              },
+              "enableCustomUI": true,
+              "subtitleFields": {
+                  "text": "@content[i]/shortDescription"
+              },
+              "enableThumbnails": true,
+              "thumbnailsConfig": "@content[i]/content.thumbnails",
+              "progressbarFields": {
+                  "width": 1600,
+                  "height": 10,
+                  "scrubberWidth": 31,
+                  "scrubberHeight": 31
+              },
+              "episodesListFields": {
+                  "api": "@api/home.getRecommendedShows",
+                  "itemComponentName": "@layout/HomeRowListItem"
+              }
+          }
       }
-    },
-    "player": {
-      "args": {
-        "titleFields": {
-          "text": "@content[i]/title"
-        },
-        "contentFields": {
-          "url": "@content[i]/content.videos[0].url"
-        },
-        "enableCustomUI": true,
-        "subtitleFields": {
-          "text": "@content[i]/shortDescription"
-        },
-        "enableThumbnails": true,
-        "thumbnailsConfig": "@content[i]/content.thumbnails",
-        "progressbarFields": {
-          "width": 1600,
-          "height": 10,
-          "scrubberWidth": 31,
-          "scrubberHeight": 31
-        },
-        "episodesListFields": {
-          "api": "@api/home.getRecommendedShows",
-          "itemComponentName": "@layout/HomeRowListItem"
-        }
-      }
-    }
   },
   "main": {
-    "settings": {
-      "homePage": "@view/HomeNew",
-      "landingPage": "@view/authOptions",
-      "languageCode": "en"
-    }
+      "settings": {
+          "homePage": "@view/HomeNew",
+          "landingPage": "@view/authOptions",
+          "languageCode": "en"
+      }
   },
   "views": {
-    "home": {
-      "layout": {
-        "type": "OvyView",
-        "children": [
-          {
-            "type": "OvyLayoutGroup",
-            "fields": {
-              "id": "rowsLayout",
-              "pageScrollVertAnim": "@anim/pageScrollVertAnim",
-              "pageScrollVertMarkers": "[homeRows]"
-            },
-            "children": [
-              {
-                "type": "Group",
-                "children": [
+      "home": {
+          "layout": {
+              "type": "OvyView",
+              "children": [
                   {
-                    "type": "OvyCarouselView",
-                    "fields": {
-                      "id": "banner",
-                      "width": "1280",
-                      "height": "720",
-                      "dataRes": "@data/home.carousel",
-                      "autoScroll": "true",
-                      "itemComponentName": "@layout/homeCarouselItem",
-                      "indicatorPositionOffset": "[0, -64]"
-                    }
-                  },
-                  {
-                    "type": "Poster",
-                    "fields": {
-                      "id": "logo",
-                      "uri": "pkg:/images/white-logo.png",
-                      "width": "214",
-                      "height": "144",
-                      "loadWidth": "214",
-                      "blendColor": "#00FF00",
-                      "loadHeight": "144",
-                      "translation": "[1600, 64]",
-                      "loadDisplayMode": "limitSize"
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "OvyRowList",
-                "fields": {
-                  "id": "bookmarksRowList",
-                  "numRows": "1",
-                  "itemSize": "[ 1920, 290 ]",
-                  "focusable": "false",
-                  "rowItemSize": "[[400, 225]]",
-                  "showRowLabel": "[true]",
-                  "rowLabelColor": "0xa0b033ff",
-                  "rowItemSpacing": "[ [16, 0] ]",
-                  "rowLabelOffset": "[ [0, 30] ]",
-                  "itemComponentName": "@layout/BookMarkListItem",
-                  "rowFocusAnimationStyle": "fixedFocusWrap"
-                }
-              },
-              {
-                "type": "OvyRowList",
-                "fields": {
-                  "id": "homeRows",
-                  "api": "@api/home.getHomeData",
-                  "numRows": "100",
-                  "itemSize": "[ 1920, 290 ]",
-                  "itemSpacing": "[ 0, 112 ]",
-                  "rowItemSize": "[[300, 290]]",
-                  "showRowLabel": "[true]",
-                  "rowLabelColor": "0xa0b033ff",
-                  "rowItemSpacing": "[ [20, 0] ]",
-                  "rowLabelOffset": "[ [0, 30] ]",
-                  "showItemPreview": true,
-                  "itemComponentName": "@layout/HomeRowListItem",
-                  "itemPreviewUrlKey": "videoUrl",
-                  "itemPreviewDuration": 15,
-                  "rowFocusAnimationStyle": "fixedFocusWrap"
-                },
-                "observers": {
-                  "rowItemSelected": "@view/details(@content[i])"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "interface": {}
-    },
-    "details": {
-      "layout": {
-        "type": "OvyView",
-        "fields": {
-          "id": "detailsView",
-          "api": "@api/details.getSeries",
-          "backgroundImageUri": "",
-          "pageScrollVertAnim": "@anim/pageScrollVertAnim",
-          "pageScrollVertMarkers": "[seasonsList, castAndCrew]"
-        },
-        "children": [
-          {
-            "type": "Group",
-            "children": [
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "bgImage",
-                  "uri": "@data/data.banner",
-                  "width": 1920,
-                  "height": 1080
-                }
-              },
-              {
-                "type": "Poster",
-                "fields": {
-                  "uri": "pkg:/images/grad_smooth_left_to_right.png",
-                  "width": 1920,
-                  "height": 1080
-                }
-              },
-              {
-                "type": "Poster",
-                "fields": {
-                  "uri": "pkg:/images/grad_smooth_bottom_to_top.png",
-                  "width": 1920,
-                  "height": 1080
-                }
-              }
-            ]
-          },
-          {
-            "type": "LayoutGroup",
-            "fields": {
-              "id": "lGrp",
-              "translation": [
-                82,
-                52
-              ],
-              "itemSpacings": [
-                16,
-                48,
-                16,
-                28,
-                0,
-                32,
-                32,
-                4,
-                0
-              ],
-              "horizAlignment": "custom",
-              "layoutDirection": "vert"
-            },
-            "children": [
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "title",
-                  "font": "@font/DevantMedium",
-                  "text": "@data/data.title",
-                  "width": 960
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "subtitle",
-                  "font": "@font/BrandonGrotesqueBold",
-                  "text": "{@data/data.rating} | {@data/data.seasonsCount} Seasons | {@data/data.genre} | {@data/data.languages[0]}",
-                  "width": 960,
-                  "opacity": 0.8
-                }
-              },
-              {
-                "type": "OvyLabel",
-                "fields": {
-                  "id": "episodeTitle",
-                  "font": "@font/BrandonGrotesqueBold",
-                  "text": "SEASON {@data/playbackHistory.seasonNumber} EPISODE {@data/playbackHistory.episodeNum} : {@data/playbackHistory.title}",
-                  "wrap": true,
-                  "width": 960,
-                  "opacity": 0.8
-                }
-              },
-              {
-                "type": "OvyLabel",
-                "fields": {
-                  "id": "descriptionLabel",
-                  "font": "@font/BrandonGrotesqueRegular",
-                  "text": "@data/data.shortDescription",
-                  "wrap": true,
-                  "color": "#FFFFFF",
-                  "width": 900,
-                  "height": 90,
-                  "opacity": 0.8,
-                  "numLines": 2,
-                  "horizAlign": "left",
-                  "lineSpacing": 1,
-                  "ellipsizeOnBoundary": true
-                }
-              },
-              {
-                "type": "OvyLayoutGroup",
-                "fields": {
-                  "id": "buttonGroup",
-                  "translation": [
-                    0,
-                    64
-                  ],
-                  "itemSpacings": [
-                    7,
-                    -32,
-                    28
-                  ],
-                  "layoutDirection": "vert"
-                },
-                "children": [
-                  {
-                    "type": "OvyLayoutGroup",
-                    "fields": {
-                      "id": "resumeAndRemainingTimeButtonGrp",
-                      "translation": [
-                        32,
-                        64
-                      ],
-                      "itemSpacings": [
-                        20
-                      ],
-                      "layoutDirection": "horiz"
-                    },
-                    "children": [
-                      {
-                        "type": "OvyButton",
-                        "fields": {
-                          "id": "playOrResumeButton",
-                          "@res": "@style/labelButton",
-                          "height": 60,
-                          "states": "play, resume",
-                          "iconUri": "pkg:/images/play.png",
-                          "minWidth": 190,
-                          "textFont": "@font/BrandonGrotesqueBlack",
-                          "focusable": true,
-                          "textcolor": "#FFFFFF",
-                          "focusBitmapUri": "pkg:/images/green_image.9.png",
-                          "focusedIconUri": "pkg:/images/play.png",
-                          "horizFocusable": true,
-                          "focusedTextFont": "@font/BrandonGrotesqueBlack",
-                          "focusedTextColor": "#FFFFFF",
-                          "showFocusFootprint": true,
-                          "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
-                        },
-                        "observers": {
-                          "buttonSelected": ""
-                        }
+                      "type": "OvyLayoutGroup",
+                      "fields": {
+                          "id": "rowsLayout",
+                          "pageScrollVertAnim": "@anim/pageScrollVertAnim",
+                          "pageScrollVertMarkers": "[homeRows]"
                       },
-                      {
-                        "type": "Label",
-                        "fields": {
-                          "id": "remainingText",
-                          "font": "@font/BrandonGrotesqueRegular",
-                          "text": "@data/details.playbackHistory.timeleft",
-                          "width": 300,
-                          "height": 60,
-                          "opacity": 0.8,
-                          "vertAlign": "center",
+                      "children": [
+                          {
+                              "type": "Group",
+                              "children": [
+                                  {
+                                      "type": "OvyCarouselView",
+                                      "fields": {
+                                          "id": "banner",
+                                          "width": "1280",
+                                          "height": "720",
+                                          "dataRes": "@data/home.carousel",
+                                          "autoScroll": "true",
+                                          "itemComponentName": "@layout/homeCarouselItem",
+                                          "indicatorPositionOffset": "[0, -64]"
+                                      }
+                                  },
+                                  {
+                                      "type": "Poster",
+                                      "fields": {
+                                          "id": "logo",
+                                          "uri": "pkg:/images/white-logo.png",
+                                          "width": "214",
+                                          "height": "144",
+                                          "loadWidth": "214",
+                                          "blendColor": "#00FF00",
+                                          "loadHeight": "144",
+                                          "translation": "[1600, 64]",
+                                          "loadDisplayMode": "limitSize"
+                                      }
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "OvyRowList",
+                              "fields": {
+                                  "id": "bookmarksRowList",
+                                  "numRows": "1",
+                                  "itemSize": "[ 1920, 290 ]",
+                                  "focusable": "false",
+                                  "rowItemSize": "[[400, 225]]",
+                                  "showRowLabel": "[true]",
+                                  "rowLabelColor": "0xa0b033ff",
+                                  "rowItemSpacing": "[ [16, 0] ]",
+                                  "rowLabelOffset": "[ [0, 30] ]",
+                                  "itemComponentName": "@layout/BookMarkListItem",
+                                  "rowFocusAnimationStyle": "fixedFocusWrap"
+                              }
+                          },
+                          {
+                              "type": "OvyRowList",
+                              "fields": {
+                                  "id": "homeRows",
+                                  "api": "@api/home.getHomeData",
+                                  "numRows": "100",
+                                  "itemSize": "[ 1920, 290 ]",
+                                  "itemSpacing": "[ 0, 112 ]",
+                                  "rowItemSize": "[[300, 290]]",
+                                  "showRowLabel": "[true]",
+                                  "rowLabelColor": "0xa0b033ff",
+                                  "rowItemSpacing": "[ [20, 0] ]",
+                                  "rowLabelOffset": "[ [0, 30] ]",
+                                  "showItemPreview": true,
+                                  "itemComponentName": "@layout/HomeRowListItem",
+                                  "itemPreviewUrlKey": "videoUrl",
+                                  "itemPreviewDuration": 15,
+                                  "rowFocusAnimationStyle": "fixedFocusWrap"
+                              },
+                              "observers": {
+                                  "rowItemSelected": "@view/details(@content[i])"
+                              }
+                          }
+                      ]
+                  }
+              ]
+          },
+          "interface": {}
+      },
+      "details": {
+          "layout": {
+              "type": "OvyView",
+              "fields": {
+                  "id": "detailsView",
+                  "api": "@api/details.getSeries",
+                  "backgroundImageUri": "",
+                  "pageScrollVertAnim": "@anim/pageScrollVertAnim",
+                  "pageScrollVertMarkers": "[seasonsList, castAndCrew]"
+              },
+              "children": [
+                  {
+                      "type": "Group",
+                      "children": [
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "bgImage",
+                                  "uri": "@data/data.banner",
+                                  "width": 1920,
+                                  "height": 1080
+                              }
+                          },
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "uri": "pkg:/images/grad_smooth_left_to_right.png",
+                                  "width": 1920,
+                                  "height": 1080
+                              }
+                          },
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "uri": "pkg:/images/grad_smooth_bottom_to_top.png",
+                                  "width": 1920,
+                                  "height": 1080
+                              }
+                          }
+                      ]
+                  },
+                  {
+                      "type": "LayoutGroup",
+                      "fields": {
+                          "id": "lGrp",
                           "translation": [
-                            14,
-                            0
-                          ]
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "type": "OvyProgressbar",
-                    "fields": {
-                      "id": "progress",
-                      "width": "215",
-                      "height": "5",
-                      "barColor": "#119B15",
-                      "barOpacity": "1",
-                      "translation": [
-                        3,
-                        125
-                      ],
-                      "scrubberWidth": "0",
-                      "scrubberHeight": "0",
-                      "scrubberIconUri": "",
-                      "scrubberFocusable": false,
-                      "backgroundBarColor": "#808080",
-                      "backgroundBarOpacity": "0.7",
-                      "scrubberFocusedIconUri": ""
-                    }
-                  },
-                  {
-                    "type": "Button",
-                    "fields": {
-                      "id": "playFromBeginningButton",
-                      "text": "@string/playFromBeginning",
-                      "height": 60,
-                      "iconUri": "pkg:/images/play.png",
-                      "minWidth": 190,
-                      "textFont": "@font/BrandonGrotesqueBlack",
-                      "focusable": true,
-                      "textcolor": "#FFFFFF",
-                      "focusBitmapUri": "pkg:/images/green_image.9.png",
-                      "focusedIconUri": "pkg:/images/play.png",
-                      "horizFocusable": true,
-                      "focusedTextFont": "@font/BrandonGrotesqueBlack",
-                      "focusedTextColor": "#FFFFFF",
-                      "showFocusFootprint": true,
-                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
-                    },
-                    "observers": {
-                      "buttonSelected": ""
-                    }
-                  },
-                  {
-                    "type": "Button",
-                    "fields": {
-                      "id": "watchListButton",
-                      "height": 60,
-                      "iconUri": "pkg:/images/addWatchList.png",
-                      "minWidth": 217,
-                      "textFont": "@font/BrandonGrotesqueBlack",
-                      "focusable": true,
-                      "textcolor": "#FFFFFF",
-                      "focusBitmapUri": "pkg:/images/green_image.9.png",
-                      "focusedIconUri": "pkg:/images/addWatchList.png",
-                      "focusedTextFont": "@font/BrandonGrotesqueBlack",
-                      "focusedTextColor": "#FFFFFF",
-                      "showFocusFootprint": true,
-                      "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
-                    },
-                    "observers": {
-                      "buttonSelected": ""
-                    }
+                              82,
+                              52
+                          ],
+                          "itemSpacings": [
+                              16,
+                              48,
+                              16,
+                              28,
+                              0,
+                              32,
+                              32,
+                              4,
+                              0
+                          ],
+                          "horizAlignment": "custom",
+                          "layoutDirection": "vert"
+                      },
+                      "children": [
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "title",
+                                  "font": "@font/DevantMedium",
+                                  "text": "@data/data.title",
+                                  "width": 960
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "subtitle",
+                                  "font": "@font/BrandonGrotesqueBold",
+                                  "text": "{@data/data.rating} | {@data/data.seasonsCount} Seasons | {@data/data.genre} | {@data/data.languages[0]}",
+                                  "width": 960,
+                                  "opacity": 0.8
+                              }
+                          },
+                          {
+                              "type": "OvyLabel",
+                              "fields": {
+                                  "id": "episodeTitle",
+                                  "font": "@font/BrandonGrotesqueBold",
+                                  "text": "SEASON {@data/playbackHistory.seasonNumber} EPISODE {@data/playbackHistory.episodeNum} : {@data/playbackHistory.title}",
+                                  "wrap": true,
+                                  "width": 960,
+                                  "opacity": 0.8
+                              }
+                          },
+                          {
+                              "type": "OvyLabel",
+                              "fields": {
+                                  "id": "descriptionLabel",
+                                  "font": "@font/BrandonGrotesqueRegular",
+                                  "text": "@data/data.shortDescription",
+                                  "wrap": true,
+                                  "color": "#FFFFFF",
+                                  "width": 900,
+                                  "height": 90,
+                                  "opacity": 0.8,
+                                  "numLines": 2,
+                                  "horizAlign": "left",
+                                  "lineSpacing": 1,
+                                  "ellipsizeOnBoundary": true
+                              }
+                          },
+                          {
+                              "type": "OvyLayoutGroup",
+                              "fields": {
+                                  "id": "buttonGroup",
+                                  "translation": [
+                                      0,
+                                      64
+                                  ],
+                                  "itemSpacings": [
+                                      7,
+                                      -32,
+                                      28
+                                  ],
+                                  "layoutDirection": "vert"
+                              },
+                              "children": [
+                                  {
+                                      "type": "OvyLayoutGroup",
+                                      "fields": {
+                                          "id": "resumeAndRemainingTimeButtonGrp",
+                                          "translation": [
+                                              32,
+                                              64
+                                          ],
+                                          "itemSpacings": [
+                                              20
+                                          ],
+                                          "layoutDirection": "horiz"
+                                      },
+                                      "children": [
+                                          {
+                                              "type": "OvyButton",
+                                              "fields": {
+                                                  "id": "playOrResumeButton",
+                                                  "@res": "@style/labelButton",
+                                                  "height": 60,
+                                                  "states": "play, resume",
+                                                  "iconUri": "pkg:/images/play.png",
+                                                  "minWidth": 190,
+                                                  "textFont": "@font/BrandonGrotesqueBlack",
+                                                  "focusable": true,
+                                                  "textcolor": "#FFFFFF",
+                                                  "focusBitmapUri": "pkg:/images/green_image.9.png",
+                                                  "focusedIconUri": "pkg:/images/play.png",
+                                                  "horizFocusable": true,
+                                                  "focusedTextFont": "@font/BrandonGrotesqueBlack",
+                                                  "focusedTextColor": "#FFFFFF",
+                                                  "showFocusFootprint": true,
+                                                  "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
+                                              },
+                                              "observers": {
+                                                  "buttonSelected": ""
+                                              }
+                                          },
+                                          {
+                                              "type": "Label",
+                                              "fields": {
+                                                  "id": "remainingText",
+                                                  "font": "@font/BrandonGrotesqueRegular",
+                                                  "text": "@data/details.playbackHistory.timeleft",
+                                                  "width": 300,
+                                                  "height": 60,
+                                                  "opacity": 0.8,
+                                                  "vertAlign": "center",
+                                                  "translation": [
+                                                      14,
+                                                      0
+                                                  ]
+                                              }
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "OvyProgressbar",
+                                      "fields": {
+                                          "id": "progress",
+                                          "width": "215",
+                                          "height": "5",
+                                          "barColor": "#119B15",
+                                          "barOpacity": "1",
+                                          "translation": [
+                                              3,
+                                              125
+                                          ],
+                                          "scrubberWidth": "0",
+                                          "scrubberHeight": "0",
+                                          "scrubberIconUri": "",
+                                          "scrubberFocusable": false,
+                                          "backgroundBarColor": "#808080",
+                                          "backgroundBarOpacity": "0.7",
+                                          "scrubberFocusedIconUri": ""
+                                      }
+                                  },
+                                  {
+                                      "type": "Button",
+                                      "fields": {
+                                          "id": "playFromBeginningButton",
+                                          "text": "@string/playFromBeginning",
+                                          "height": 60,
+                                          "iconUri": "pkg:/images/play.png",
+                                          "minWidth": 190,
+                                          "textFont": "@font/BrandonGrotesqueBlack",
+                                          "focusable": true,
+                                          "textcolor": "#FFFFFF",
+                                          "focusBitmapUri": "pkg:/images/green_image.9.png",
+                                          "focusedIconUri": "pkg:/images/play.png",
+                                          "horizFocusable": true,
+                                          "focusedTextFont": "@font/BrandonGrotesqueBlack",
+                                          "focusedTextColor": "#FFFFFF",
+                                          "showFocusFootprint": true,
+                                          "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
+                                      },
+                                      "observers": {
+                                          "buttonSelected": ""
+                                      }
+                                  },
+                                  {
+                                      "type": "Button",
+                                      "fields": {
+                                          "id": "watchListButton",
+                                          "height": 60,
+                                          "iconUri": "pkg:/images/addWatchList.png",
+                                          "minWidth": 217,
+                                          "textFont": "@font/BrandonGrotesqueBlack",
+                                          "focusable": true,
+                                          "textcolor": "#FFFFFF",
+                                          "focusBitmapUri": "pkg:/images/green_image.9.png",
+                                          "focusedIconUri": "pkg:/images/addWatchList.png",
+                                          "focusedTextFont": "@font/BrandonGrotesqueBlack",
+                                          "focusedTextColor": "#FFFFFF",
+                                          "showFocusFootprint": true,
+                                          "focusFootprintBitmapUri": "pkg:/images/grey_image.9.png"
+                                      },
+                                      "observers": {
+                                          "buttonSelected": ""
+                                      }
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "OvyRowList",
+                              "fields": {
+                                  "id": "seasonsList",
+                                  "numRows": 3,
+                                  "itemSize": "[ 1920, 150 ]",
+                                  "itemSpacing": "[ 0, 112 ]",
+                                  "rowItemSize": "[[266, 150]]",
+                                  "rowLabelFont": "@font/BrandonGrotesqueBoldWeight28",
+                                  "showRowLabel": [
+                                      true
+                                  ],
+                                  "rowItemSpacing": "[ [30, 0] ]",
+                                  "rowLabelOffset": "[ [0, 30] ]",
+                                  "itemComponentName": "@layout/EpisodeRowListItem",
+                                  "focusBitmapBlendColor": "#35E716",
+                                  "vertFocusAnimationStyle": "floatingFocus"
+                              },
+                              "observers": {
+                                  "rowItemFocused": "",
+                                  "rowItemSelected": "@view/episodeDetails(@content[i])"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "castNCrewLabel",
+                                  "font": "@font/BrandonGrotesqueBoldWeight28",
+                                  "text": "@string/cast\u0026Crew",
+                                  "width": 740,
+                                  "height": 10,
+                                  "maxLines": 1
+                              }
+                          },
+                          {
+                              "type": "OvyMarkupGrid",
+                              "fields": {
+                                  "id": "castAndCrew",
+                                  "dataRes": "@data/data.castAndCrew",
+                                  "numRows": 1,
+                                  "itemSize": [
+                                      300,
+                                      290
+                                  ],
+                                  "numColumns": 10,
+                                  "itemSpacing": [
+                                      20,
+                                      20
+                                  ],
+                                  "itemComponentName": "CastnCrewItem",
+                                  "focusBitmapBlendColor": "#35E716",
+                                  "horizFocusAnimationStyle": "fixedFocus"
+                              },
+                              "observers": {
+                                  "itemSelected": "@view/CastCrew(@content[i])"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "aboutLable",
+                                  "font": "@font/BrandonGrotesqueBoldWeight28",
+                                  "text": "@string/about",
+                                  "width": 740,
+                                  "maxLines": 1
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "descriptionAbout",
+                                  "font": "@font/BrandonGrotesqueBoldWeight26",
+                                  "text": "@data/data.description",
+                                  "wrap": true,
+                                  "width": 1658,
+                                  "lineSpacing": 1
+                              }
+                          },
+                          {
+                              "type": "Rectangle",
+                              "fields": {
+                                  "id": "paddingDummyScroll",
+                                  "height": 200,
+                                  "focusable": false
+                              }
+                          }
+                      ]
                   }
-                ]
-              },
-              {
-                "type": "OvyRowList",
-                "fields": {
-                  "id": "seasonsList",
-                  "numRows": 3,
-                  "itemSize": "[ 1920, 150 ]",
-                  "itemSpacing": "[ 0, 112 ]",
-                  "rowItemSize": "[[266, 150]]",
-                  "rowLabelFont": "@font/BrandonGrotesqueBoldWeight28",
-                  "showRowLabel": [
-                    true
-                  ],
-                  "rowItemSpacing": "[ [30, 0] ]",
-                  "rowLabelOffset": "[ [0, 30] ]",
-                  "itemComponentName": "@layout/EpisodeRowListItem",
-                  "focusBitmapBlendColor": "#35E716",
-                  "vertFocusAnimationStyle": "floatingFocus"
-                },
-                "observers": {
-                  "rowItemFocused": "",
-                  "rowItemSelected": "@view/episodeDetails(@content[i])"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "castNCrewLabel",
-                  "font": "@font/BrandonGrotesqueBoldWeight28",
-                  "text": "@string/cast&Crew",
-                  "width": 740,
-                  "height": 10,
-                  "maxLines": 1
-                }
-              },
-              {
-                "type": "OvyMarkupGrid",
-                "fields": {
-                  "id": "castAndCrew",
-                  "dataRes": "@data/data.castAndCrew",
-                  "numRows": 1,
-                  "itemSize": [
-                    300,
-                    290
-                  ],
-                  "numColumns": 10,
-                  "itemSpacing": [
-                    20,
-                    20
-                  ],
-                  "itemComponentName": "CastnCrewItem",
-                  "focusBitmapBlendColor": "#35E716",
-                  "horizFocusAnimationStyle": "fixedFocus"
-                },
-                "observers": {
-                  "itemSelected": "@view/CastCrew(@content[i])"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "aboutLable",
-                  "font": "@font/BrandonGrotesqueBoldWeight28",
-                  "text": "@string/about",
-                  "width": 740,
-                  "maxLines": 1
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "descriptionAbout",
-                  "font": "@font/BrandonGrotesqueBoldWeight26",
-                  "text": "@data/data.description",
-                  "wrap": true,
-                  "width": 1658,
-                  "lineSpacing": 1
-                }
-              },
-              {
-                "type": "Rectangle",
-                "fields": {
-                  "id": "paddingDummyScroll",
-                  "height": 200,
-                  "focusable": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "interface": {}
-    },
-    "authOptions": {
-      "layout": {
-        "type": "OvyView",
-        "children": [
-          {
-            "type": "OvyGroup",
-            "fields": {
-              "id": "signupPosterGroup"
-            },
-            "children": [
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "backgroundPoster",
-                  "uri": "S://",
-                  "width": "1920",
-                  "height": "1080",
-                  "loadWidth": "1920",
-                  "loadHeight": "1080",
-                  "translation": "[0, 0]",
-                  "loadDisplayMode": "limitSize"
-                }
-              },
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "logoPoster",
-                  "uri": "pkg:/images/white-logo.png",
-                  "width": "364",
-                  "height": "164",
-                  "loadWidth": "364",
-                  "loadHeight": "164",
-                  "translation": "[778, 50]",
-                  "loadDisplayMode": "limitSize"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "signinSignupLabel",
-                  "font": "@font/DevantMedium",
-                  "text": "@string/signInSignUpLabel",
-                  "width": "1120",
-                  "vertAlign": "center",
-                  "horizAlign": "center",
-                  "translation": "[400, 290]"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "signinSignupDescriptionLabel",
-                  "font": "@font/BrandonGrotesqueBoldWeight32",
-                  "text": "@string/signInSignUpDesc",
-                  "wrap": "true",
-                  "width": "1120",
-                  "vertAlign": "center",
-                  "horizAlign": "center",
-                  "translation": "[400, 418]"
-                }
-              },
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "tvIconPoster",
-                  "uri": "pkg:/images/icon_tv.png",
-                  "width": "248",
-                  "height": "182",
-                  "loadWidth": "248",
-                  "loadHeight": "182",
-                  "translation": "[836, 556]",
-                  "loadDisplayMode": "limitSize"
-                }
-              },
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "remoteIconPoster",
-                  "uri": "pkg:/images/icon_remote.png",
-                  "width": "113",
-                  "height": "164",
-                  "loadWidth": "113",
-                  "loadHeight": "164",
-                  "translation": "[980, 640]",
-                  "loadDisplayMode": "limitSize"
-                }
-              }
-            ]
+              ]
           },
-          {
-            "type": "OvyLayoutGroup",
-            "fields": {
-              "id": "signinSignupButtonsLayoutGroup",
-              "focusable": "false",
-              "translation": "[960, 848]",
-              "itemSpacings": "[114]",
-              "horizAlignment": "center",
-              "layoutDirection": "horiz"
-            },
-            "children": [
-              {
-                "type": "OvyButton",
-                "fields": {
-                  "id": "landingSigninButton",
-                  "@res": "@style/authOptionsButtons",
-                  "text": "@string/signIn",
-                  "maxWidth": "260",
-                  "focusable": "true",
-                  "horizFocusable": "true"
-                },
-                "observers": {
-                  "buttonSelected": "@view/signinSignup;"
-                }
-              },
-              {
-                "type": "OvyButton",
-                "fields": {
-                  "id": "landingSignupButton",
-                  "@res": "@style/authOptionsButtons",
-                  "text": "@string/signUp",
-                  "maxWidth": "260",
-                  "focusable": "false",
-                  "horizFocusable": "true"
-                },
-                "observers": {
-                  "buttonSelected": "@view/signup;"
-                }
-              }
-            ]
-          }
-        ]
+          "interface": {}
       },
-      "interface": {}
-    },
-    "signinSignup": {
-      "layout": {
-        "type": "OvyView",
-        "children": [
-          {
-            "type": "OvyGroup",
-            "fields": {
-              "id": "signupPosterGroup"
-            },
-            "children": [
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "backgroundPoster",
-                  "uri": "S://",
-                  "width": "1920",
-                  "height": "1080",
-                  "loadWidth": "1920",
-                  "loadHeight": "1080",
-                  "translation": "[0, 0]",
-                  "loadDisplayMode": "limitSize"
-                }
-              },
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "logoPoster",
-                  "uri": "pkg:/images/white-logo.png",
-                  "width": "364",
-                  "height": "164",
-                  "loadWidth": "364",
-                  "loadHeight": "164",
-                  "translation": "[778, 50]",
-                  "loadDisplayMode": "limitSize"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "signinSignupLabel",
-                  "font": "@font/DevantMedium",
-                  "text": "@string/signInSignUpLabel",
-                  "width": "1120",
-                  "vertAlign": "center",
-                  "horizAlign": "center",
-                  "translation": "[400, 202]"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "signinSignupDescriptionLabel",
-                  "font": "@font/BrandonGrotesqueBoldWeight32",
-                  "text": "@string/signInSignUpDesc",
-                  "wrap": "true",
-                  "width": "1120",
-                  "vertAlign": "center",
-                  "horizAlign": "center",
-                  "translation": "[400, 304]"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "errorTextLabel",
-                  "font": "@font/BrandonGrotesqueBoldWeight32",
-                  "text": "@error/message.message",
-                  "color": "#FF0000",
-                  "width": "1720",
-                  "vertAlign": "center",
-                  "horizAlign": "center",
-                  "translation": "[100, 350]"
-                }
-              },
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "tvIconPoster",
-                  "uri": "pkg:/images/icon_tv.png",
-                  "width": "248",
-                  "height": "182",
-                  "loadWidth": "248",
-                  "loadHeight": "182",
-                  "translation": "[400, 490]",
-                  "loadDisplayMode": "limitSize"
-                }
-              },
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "remoteIconPoster",
-                  "uri": "pkg:/images/icon_remote.png",
-                  "width": "113",
-                  "height": "164",
-                  "loadWidth": "113",
-                  "loadHeight": "164",
-                  "translation": "[544, 574]",
-                  "loadDisplayMode": "limitSize"
-                }
-              }
-            ]
-          },
-          {
-            "type": "OvyLayoutGroup",
-            "fields": {
-              "id": "signinSignupLayoutGroup",
-              "translation": "[1395, 490]",
-              "itemSpacings": "[20, 69, 90, 0]",
-              "horizAlignment": "center",
-              "layoutDirection": "vert",
-              "channelStoreCommand": "getUserData(@requestUserData/email, @context/signin)"
-            },
-            "children": [
-              {
-                "type": "OvyTextEditBox",
-                "fields": {
-                  "id": "emailTextBox",
-                  "text": "@channelStoreData/userData.email",
-                  "width": "600",
-                  "active": "true",
-                  "height": "86",
-                  "hintText": "@string/emailID",
-                  "focusable": "true",
-                  "hintTextColor": "#515151",
-                  "renderEditBox": "true",
-                  "clearOnDownKey": "false",
-                  "focusedTextColor": "#FFFFFF",
-                  "focusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
-                  "unFocusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
-                  "focusedBackgroundBlendColor": "#006A00",
-                  "unFocusedBackgroundBlendColor": "#FFFFFF"
-                }
-              },
-              {
-                "type": "OvyTextEditBox",
-                "fields": {
-                  "id": "passwordTextBox",
-                  "width": "600",
-                  "height": "86",
-                  "hintText": "@string/password",
-                  "focusable": "true",
-                  "secureMode": "true",
-                  "hintTextColor": "#515151",
-                  "renderEditBox": "true",
-                  "clearOnDownKey": "false",
-                  "focusedTextColor": "#FFFFFF",
-                  "focusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
-                  "unFocusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
-                  "focusedBackgroundBlendColor": "#006A00",
-                  "unFocusedBackgroundBlendColor": "#FFFFFF"
-                }
-              },
-              {
-                "type": "OvyLayoutGroup",
-                "fields": {
-                  "id": "signinSignupButtonsLayoutGroup",
-                  "focusable": "false",
-                  "translation": "[1404, 490]",
-                  "itemSpacings": "[65]",
-                  "horizAlignment": "center",
-                  "layoutDirection": "horiz"
-                },
-                "children": [
+      "authOptions": {
+          "layout": {
+              "type": "OvyView",
+              "children": [
                   {
-                    "type": "OvyButton",
-                    "fields": {
-                      "id": "signinButton",
-                      "@res": "@style/authOptionsButtons",
-                      "text": "@string/signIn",
-                      "maxWidth": "260",
-                      "horizFocusable": "true"
-                    },
-                    "observers": {
-                      "buttonSelected": "@auth/signIn(@view/HomeNew)"
-                    }
+                      "type": "OvyGroup",
+                      "fields": {
+                          "id": "signupPosterGroup"
+                      },
+                      "children": [
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "backgroundPoster",
+                                  "uri": "S://",
+                                  "width": "1920",
+                                  "height": "1080",
+                                  "loadWidth": "1920",
+                                  "loadHeight": "1080",
+                                  "translation": "[0, 0]",
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          },
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "logoPoster",
+                                  "uri": "pkg:/images/white-logo.png",
+                                  "width": "364",
+                                  "height": "164",
+                                  "loadWidth": "364",
+                                  "loadHeight": "164",
+                                  "translation": "[778, 50]",
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "signinSignupLabel",
+                                  "font": "@font/DevantMedium",
+                                  "text": "@string/signInSignUpLabel",
+                                  "width": "1120",
+                                  "vertAlign": "center",
+                                  "horizAlign": "center",
+                                  "translation": "[400, 290]"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "signinSignupDescriptionLabel",
+                                  "font": "@font/BrandonGrotesqueBoldWeight32",
+                                  "text": "@string/signInSignUpDesc",
+                                  "wrap": "true",
+                                  "width": "1120",
+                                  "vertAlign": "center",
+                                  "horizAlign": "center",
+                                  "translation": "[400, 418]"
+                              }
+                          },
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "tvIconPoster",
+                                  "uri": "pkg:/images/icon_tv.png",
+                                  "width": "248",
+                                  "height": "182",
+                                  "loadWidth": "248",
+                                  "loadHeight": "182",
+                                  "translation": "[836, 556]",
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          },
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "remoteIconPoster",
+                                  "uri": "pkg:/images/icon_remote.png",
+                                  "width": "113",
+                                  "height": "164",
+                                  "loadWidth": "113",
+                                  "loadHeight": "164",
+                                  "translation": "[980, 640]",
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          }
+                      ]
                   },
                   {
-                    "type": "OvyButton",
-                    "fields": {
-                      "id": "signupButton",
-                      "@res": "@style/authOptionsButtons",
-                      "text": "@string/signUp",
-                      "maxWidth": "260",
-                      "focusable": "false",
-                      "horizFocusable": "true"
-                    },
-                    "observers": {
-                      "buttonSelected": "@view/signup;"
-                    }
+                      "type": "OvyLayoutGroup",
+                      "fields": {
+                          "id": "signinSignupButtonsLayoutGroup",
+                          "focusable": "false",
+                          "translation": "[960, 848]",
+                          "itemSpacings": "[114]",
+                          "horizAlignment": "center",
+                          "layoutDirection": "horiz"
+                      },
+                      "children": [
+                          {
+                              "type": "OvyButton",
+                              "fields": {
+                                  "id": "landingSigninButton",
+                                  "@res": "@style/authOptionsButtons",
+                                  "text": "@string/signIn",
+                                  "maxWidth": "260",
+                                  "focusable": "true",
+                                  "horizFocusable": "true"
+                              },
+                              "observers": {
+                                  "buttonSelected": "@view/signinSignup;"
+                              }
+                          },
+                          {
+                              "type": "OvyButton",
+                              "fields": {
+                                  "id": "landingSignupButton",
+                                  "@res": "@style/authOptionsButtons",
+                                  "text": "@string/signUp",
+                                  "maxWidth": "260",
+                                  "focusable": "false",
+                                  "horizFocusable": "true"
+                              },
+                              "observers": {
+                                  "buttonSelected": "@view/signup;"
+                              }
+                          }
+                      ]
                   }
-                ]
-              },
-              {
-                "type": "OvyButton",
-                "fields": {
-                  "id": "forgotPasswordButton",
-                  "text": "@string/forgotPassword",
-                  "height": "30",
-                  "states": "unfocued, focused",
-                  "iconUri": "S://",
-                  "maxWidth": "480",
-                  "minWidth": "310",
-                  "textFont": "@font/BrandonGrotesqueBoldWeight32",
-                  "focusable": "true",
-                  "textcolor": "#FFFFFF",
-                  "focusBitmapUri": "S://",
-                  "focusedIconUri": "S://",
-                  "backgroundColor": "#00000000",
-                  "focusedTextFont": "@font/BrandonGrotesqueBoldWeight32",
-                  "focusedTextColor": "#00FF00",
-                  "showFocusFootprint": "false",
-                  "backgroundFocusedColor": "#00000000",
-                  "focusFootprintBitmapUri": "S://"
-                }
-              },
-              {
-                "type": "Rectangle",
-                "fields": {
-                  "id": "lineRectangle",
-                  "color": "#FFFFFF",
-                  "width": "224",
-                  "height": "2"
-                }
-              }
-            ]
-          }
-        ]
+              ]
+          },
+          "interface": {}
       },
-      "interface": {}
-    }
+      "signinSignup": {
+          "layout": {
+              "type": "OvyView",
+              "children": [
+                  {
+                      "type": "OvyGroup",
+                      "fields": {
+                          "id": "signupPosterGroup"
+                      },
+                      "children": [
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "backgroundPoster",
+                                  "uri": "S://",
+                                  "width": "1920",
+                                  "height": "1080",
+                                  "loadWidth": "1920",
+                                  "loadHeight": "1080",
+                                  "translation": "[0, 0]",
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          },
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "logoPoster",
+                                  "uri": "pkg:/images/white-logo.png",
+                                  "width": "364",
+                                  "height": "164",
+                                  "loadWidth": "364",
+                                  "loadHeight": "164",
+                                  "translation": "[778, 50]",
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "signinSignupLabel",
+                                  "font": "@font/DevantMedium",
+                                  "text": "@string/signInSignUpLabel",
+                                  "width": "1120",
+                                  "vertAlign": "center",
+                                  "horizAlign": "center",
+                                  "translation": "[400, 202]"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "signinSignupDescriptionLabel",
+                                  "font": "@font/BrandonGrotesqueBoldWeight32",
+                                  "text": "@string/signInSignUpDesc",
+                                  "wrap": "true",
+                                  "width": "1120",
+                                  "vertAlign": "center",
+                                  "horizAlign": "center",
+                                  "translation": "[400, 304]"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "errorTextLabel",
+                                  "font": "@font/BrandonGrotesqueBoldWeight32",
+                                  "text": "@error/message.message",
+                                  "color": "#FF0000",
+                                  "width": "1720",
+                                  "vertAlign": "center",
+                                  "horizAlign": "center",
+                                  "translation": "[100, 350]"
+                              }
+                          },
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "tvIconPoster",
+                                  "uri": "pkg:/images/icon_tv.png",
+                                  "width": "248",
+                                  "height": "182",
+                                  "loadWidth": "248",
+                                  "loadHeight": "182",
+                                  "translation": "[400, 490]",
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          },
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "remoteIconPoster",
+                                  "uri": "pkg:/images/icon_remote.png",
+                                  "width": "113",
+                                  "height": "164",
+                                  "loadWidth": "113",
+                                  "loadHeight": "164",
+                                  "translation": "[544, 574]",
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          }
+                      ]
+                  },
+                  {
+                      "type": "OvyLayoutGroup",
+                      "fields": {
+                          "id": "signinSignupLayoutGroup",
+                          "translation": "[1395, 490]",
+                          "itemSpacings": "[20, 69, 90, 0]",
+                          "horizAlignment": "center",
+                          "layoutDirection": "vert",
+                          "channelStoreCommand": "getUserData(@requestUserData/email, @context/signin)"
+                      },
+                      "children": [
+                          {
+                              "type": "OvyTextEditBox",
+                              "fields": {
+                                  "id": "emailTextBox",
+                                  "text": "@channelStoreData/userData.email",
+                                  "width": "600",
+                                  "active": "true",
+                                  "height": "86",
+                                  "hintText": "@string/emailID",
+                                  "focusable": "true",
+                                  "hintTextColor": "#515151",
+                                  "renderEditBox": "true",
+                                  "clearOnDownKey": "false",
+                                  "focusedTextColor": "#FFFFFF",
+                                  "focusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
+                                  "unFocusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
+                                  "focusedBackgroundBlendColor": "#006A00",
+                                  "unFocusedBackgroundBlendColor": "#CCCCCC"
+                              }
+                          },
+                          {
+                              "type": "OvyTextEditBox",
+                              "fields": {
+                                  "id": "passwordTextBox",
+                                  "width": "600",
+                                  "height": "86",
+                                  "hintText": "@string/password",
+                                  "focusable": "true",
+                                  "secureMode": "true",
+                                  "hintTextColor": "#515151",
+                                  "renderEditBox": "true",
+                                  "clearOnDownKey": "false",
+                                  "focusedTextColor": "#FFFFFF",
+                                  "focusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
+                                  "unFocusedBackgroundUri": "pkg:/images/rectangle_focus.9.png",
+                                  "focusedBackgroundBlendColor": "#006A00",
+                                  "unFocusedBackgroundBlendColor": "#CCCCCC"
+                              }
+                          },
+                          {
+                              "type": "OvyLayoutGroup",
+                              "fields": {
+                                  "id": "signinSignupButtonsLayoutGroup",
+                                  "focusable": "false",
+                                  "translation": "[1404, 490]",
+                                  "itemSpacings": "[65]",
+                                  "horizAlignment": "center",
+                                  "layoutDirection": "horiz"
+                              },
+                              "children": [
+                                  {
+                                      "type": "OvyButton",
+                                      "fields": {
+                                          "id": "signinButton",
+                                          "@res": "@style/authOptionsButtons",
+                                          "text": "@string/signIn",
+                                          "maxWidth": "260",
+                                          "horizFocusable": "true"
+                                      },
+                                      "observers": {
+                                          "buttonSelected": "@auth/signIn(@view/HomeNew)"
+                                      }
+                                  },
+                                  {
+                                      "type": "OvyButton",
+                                      "fields": {
+                                          "id": "signupButton",
+                                          "@res": "@style/authOptionsButtons",
+                                          "text": "@string/signUp",
+                                          "maxWidth": "260",
+                                          "focusable": "false",
+                                          "horizFocusable": "true"
+                                      },
+                                      "observers": {
+                                          "buttonSelected": "@view/signup;"
+                                      }
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "OvyButton",
+                              "fields": {
+                                  "id": "forgotPasswordButton",
+                                  "text": "@string/forgotPassword",
+                                  "height": "30",
+                                  "states": "unfocued, focused",
+                                  "iconUri": "S://",
+                                  "maxWidth": "480",
+                                  "minWidth": "310",
+                                  "textFont": "@font/BrandonGrotesqueBoldWeight32",
+                                  "focusable": "true",
+                                  "textcolor": "#FFFFFF",
+                                  "focusBitmapUri": "S://",
+                                  "focusedIconUri": "S://",
+                                  "backgroundColor": "#00000000",
+                                  "focusedTextFont": "@font/BrandonGrotesqueBoldWeight32",
+                                  "focusedTextColor": "#00FF00",
+                                  "showFocusFootprint": "false",
+                                  "backgroundFocusedColor": "#00000000",
+                                  "focusFootprintBitmapUri": "S://"
+                              }
+                          },
+                          {
+                              "type": "Rectangle",
+                              "fields": {
+                                  "id": "lineRectangle",
+                                  "color": "#FFFFFF",
+                                  "width": "224",
+                                  "height": "2"
+                              }
+                          }
+                      ]
+                  }
+              ]
+          },
+          "interface": {}
+      }
   },
   "resources": {
-    "fonts": {
-      "RobotoBold": {
-        "uri": "pkg:/fonts/Roboto/Roboto-Bold.ttf",
-        "size": 103
-      },
-      "RobotoBlack": {
-        "uri": "pkg:/fonts/Roboto/Roboto-Black.ttf",
-        "size": 103
-      },
-      "RobotoLight": {
-        "uri": "pkg:/fonts/Roboto/Roboto-Light.ttf",
-        "size": 103
-      },
-      "RobotoMedium": {
-        "uri": "pkg:/fonts/Roboto/Roboto-Medium.ttf",
-        "size": 103
-      },
-      "RobotoMediumNormal": "@RobotoMedium",
-      "RobotoMediumWeight200": "@RobotoMediumCustom"
-    },
-    "colors": {
-      "red": "#FF0000",
-      "aqua": "#00FFFF",
-      "blue": "#0000FF",
-      "navy": "#000080",
-      "teal": "#008080",
-      "black": "#000000",
-      "olive": "#808000",
-      "white": "#FFFFFF",
-      "maroon": "#800000",
-      "yellow": "#FFFF00",
-      "fuchsia": "#FF00FF"
-    },
-    "images": {
-      "channelPosterHD": "pkg:/images/channel-poster_hd.png",
-      "channelPosterFHD": "pkg:/images/channel-poster_fhd.png"
-    },
-    "styles": {
-      "secondary": {
-        "loader": "@layouts/rowLoadingSpinner",
-        "restApi": "@api/details.getDetailed",
-        "itemSize": [
-          320,
-          240
-        ],
-        "numColumns": 4,
-        "contentHandler": "DetailsRowsContentHandler",
-        "itemComponentName": "@layouts/itemPosterWithMetadata"
-      },
-      "contentPoster": {
-        "width": 240,
-        "height": 240,
-        "loadWidth": 240,
-        "loadHeight": 240,
-        "loadDisplayMode": "scaleToFill"
-      },
-      "secondaryButtonLabel": {
-        "id": "testLabel",
-        "font": "font:MediumBoldSystemFont",
-        "text": "Application Development Made Easy!",
-        "width": 0,
-        "height": 44,
-        "vertAlign": "center",
-        "horizAlign": "left",
-        "translation": [
-          318,
-          8
-        ]
-      }
-    },
-    "layouts": {
-      "HomeRowListItem": {
-        "type": "Group",
-        "children": [
-          {
-            "type": "OvyLayoutGroup",
-            "fields": {
-              "translation": [
-                0,
-                0
-              ],
-              "itemSpacings": [
-                20
-              ],
-              "vertAlignment": "top",
-              "layoutDirection": "vert"
-            },
-            "children": [
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "itemImage",
-                  "uri": "@content/posterUrl",
-                  "width": 300,
-                  "height": 225,
-                  "translation": [
-                    0,
-                    0
-                  ],
-                  "loadDisplayMode": "scaleToFit"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "itemText",
-                  "font": "font:SmallestSystemFont",
-                  "text": "@content/labelText",
-                  "width": 300,
-                  "height": 65,
-                  "horizAlign": "center",
-                  "translation": [
-                    0,
-                    0
-                  ]
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "BookmarkListItem": {
-        "type": "LayoutGroup",
-        "children": [
-          {
-            "type": "Group",
-            "children": [
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "itemImage",
-                  "width": "400",
-                  "height": "225"
-                }
-              },
-              {
-                "type": "OvyProgressbar",
-                "fields": {
-                  "id": "progress",
-                  "width": "384",
-                  "height": "5",
-                  "translation": "[8, 204]",
-                  "scrubberWidth": "0",
-                  "scrubberHeight": "0",
-                  "progressPercentage": "0"
-                }
-              }
-            ]
+      "fonts": {
+          "RobotoBold": {
+              "uri": "pkg:/fonts/Roboto/Roboto-Bold.ttf",
+              "size": 103
           },
-          {
-            "type": "Label",
-            "fields": {
-              "id": "title",
-              "width": "400",
-              "horizAlign": "center"
-            }
-          }
-        ]
+          "RobotoBlack": {
+              "uri": "pkg:/fonts/Roboto/Roboto-Black.ttf",
+              "size": 103
+          },
+          "RobotoLight": {
+              "uri": "pkg:/fonts/Roboto/Roboto-Light.ttf",
+              "size": 103
+          },
+          "RobotoMedium": {
+              "uri": "pkg:/fonts/Roboto/Roboto-Medium.ttf",
+              "size": 103
+          },
+          "RobotoMediumNormal": "@RobotoMedium",
+          "RobotoMediumWeight200": "@RobotoMediumCustom"
       },
-      "HomeCarouselItem": {
-        "type": "Group",
-        "children": [
-          {
-            "type": "Poster",
-            "fields": {
-              "id": "item",
-              "uri": "@content/uri",
-              "width": "@content/width",
-              "height": "@content/height",
-              "loadDisplayMode": "scaleToZoom"
-            }
-          }
-        ]
+      "colors": {
+          "red": "#FF0000",
+          "aqua": "#00FFFF",
+          "blue": "#0000FF",
+          "navy": "#000080",
+          "teal": "#008080",
+          "black": "#000000",
+          "olive": "#808000",
+          "white": "#FFFFFF",
+          "maroon": "#800000",
+          "yellow": "#FFFF00",
+          "fuchsia": "#FF00FF"
       },
-      "DetailsRowListItem": {
-        "type": "Group",
-        "children": [
-          {
-            "type": "OvyLayoutGroup",
-            "fields": {
+      "images": {
+          "channelPosterHD": "pkg:/images/channel-poster_hd.png",
+          "channelPosterFHD": "pkg:/images/channel-poster_fhd.png"
+      },
+      "styles": {
+          "secondary": {
+              "loader": "@layouts/rowLoadingSpinner",
+              "restApi": "@api/details.getDetailed",
+              "itemSize": [
+                  320,
+                  240
+              ],
+              "numColumns": 4,
+              "contentHandler": "DetailsRowsContentHandler",
+              "itemComponentName": "@layouts/itemPosterWithMetadata"
+          },
+          "contentPoster": {
+              "width": 240,
+              "height": 240,
+              "loadWidth": 240,
+              "loadHeight": 240,
+              "loadDisplayMode": "scaleToFill"
+          },
+          "secondaryButtonLabel": {
+              "id": "testLabel",
+              "font": "font:MediumBoldSystemFont",
+              "text": "Application Development Made Easy!",
+              "width": 0,
+              "height": 44,
+              "vertAlign": "center",
+              "horizAlign": "left",
               "translation": [
-                0,
-                0
-              ],
-              "itemSpacings": [
-                50
-              ],
-              "vertAlignment": "top",
-              "layoutDirection": "vert"
-            },
-            "children": [
-              {
-                "type": "Poster",
-                "fields": {
-                  "id": "itemImage",
-                  "uri": "@content/posterUrl",
-                  "width": 200,
-                  "height": 300,
-                  "loadWidth": 200,
-                  "loadHeight": 300,
-                  "translation": [
-                    0,
-                    0
-                  ],
-                  "loadDisplayMode": "limitSize"
-                }
-              },
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "itemText",
-                  "font": "font:MediumSystemFont",
-                  "text": "@content/labelText",
-                  "width": 200,
-                  "height": 100,
-                  "horizAlign": "center",
-                  "translation": [
-                    0,
-                    0
-                  ]
-                }
-              }
-            ]
+                  318,
+                  8
+              ]
           }
-        ]
       },
-      "DetailsTabListItem": {
-        "type": "Group",
-        "children": [
-          {
-            "type": "OvyLayoutGroup",
-            "fields": {
-              "translation": [
-                0,
-                0
-              ],
-              "itemSpacings": [
-                10
-              ],
-              "layoutDirection": "vert"
-            },
-            "children": [
-              {
-                "type": "Label",
-                "fields": {
-                  "id": "itemText",
-                  "font": "font:MediumSystemFont",
-                  "text": "@content/labelText",
-                  "wrap": false,
-                  "width": "@content/width",
-                  "height": "@content/height",
-                  "vertAlign": "center",
-                  "horizAlign": "center"
-                }
-              },
-              {
-                "type": "Rectangle",
-                "fields": {
-                  "id": "focusIndicator",
-                  "width": "0",
-                  "height": "10",
-                  "opacity": "0",
-                  "visible": true,
-                  "translation": "[0,0]"
-                }
-              }
-            ]
+      "layouts": {
+          "HomeRowListItem": {
+              "type": "Group",
+              "children": [
+                  {
+                      "type": "OvyLayoutGroup",
+                      "fields": {
+                          "translation": [
+                              0,
+                              0
+                          ],
+                          "itemSpacings": [
+                              20
+                          ],
+                          "vertAlignment": "top",
+                          "layoutDirection": "vert"
+                      },
+                      "children": [
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "itemImage",
+                                  "uri": "@content/posterUrl",
+                                  "width": 300,
+                                  "height": 225,
+                                  "translation": [
+                                      0,
+                                      0
+                                  ],
+                                  "loadDisplayMode": "scaleToFit"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "itemText",
+                                  "font": "font:SmallestSystemFont",
+                                  "text": "@content/labelText",
+                                  "width": 300,
+                                  "height": 65,
+                                  "horizAlign": "center",
+                                  "translation": [
+                                      0,
+                                      0
+                                  ]
+                              }
+                          }
+                      ]
+                  }
+              ]
+          },
+          "BookmarkListItem": {
+              "type": "LayoutGroup",
+              "children": [
+                  {
+                      "type": "Group",
+                      "children": [
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "itemImage",
+                                  "width": "400",
+                                  "height": "225"
+                              }
+                          },
+                          {
+                              "type": "OvyProgressbar",
+                              "fields": {
+                                  "id": "progress",
+                                  "width": "384",
+                                  "height": "5",
+                                  "translation": "[8, 204]",
+                                  "scrubberWidth": "0",
+                                  "scrubberHeight": "0",
+                                  "progressPercentage": "0"
+                              }
+                          }
+                      ]
+                  },
+                  {
+                      "type": "Label",
+                      "fields": {
+                          "id": "title",
+                          "width": "400",
+                          "horizAlign": "center"
+                      }
+                  }
+              ]
+          },
+          "HomeCarouselItem": {
+              "type": "Group",
+              "children": [
+                  {
+                      "type": "Poster",
+                      "fields": {
+                          "id": "item",
+                          "uri": "@content/uri",
+                          "width": "@content/width",
+                          "height": "@content/height",
+                          "loadDisplayMode": "scaleToZoom"
+                      }
+                  }
+              ]
+          },
+          "DetailsRowListItem": {
+              "type": "Group",
+              "children": [
+                  {
+                      "type": "OvyLayoutGroup",
+                      "fields": {
+                          "translation": [
+                              0,
+                              0
+                          ],
+                          "itemSpacings": [
+                              50
+                          ],
+                          "vertAlignment": "top",
+                          "layoutDirection": "vert"
+                      },
+                      "children": [
+                          {
+                              "type": "Poster",
+                              "fields": {
+                                  "id": "itemImage",
+                                  "uri": "@content/posterUrl",
+                                  "width": 200,
+                                  "height": 300,
+                                  "loadWidth": 200,
+                                  "loadHeight": 300,
+                                  "translation": [
+                                      0,
+                                      0
+                                  ],
+                                  "loadDisplayMode": "limitSize"
+                              }
+                          },
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "itemText",
+                                  "font": "font:MediumSystemFont",
+                                  "text": "@content/labelText",
+                                  "width": 200,
+                                  "height": 100,
+                                  "horizAlign": "center",
+                                  "translation": [
+                                      0,
+                                      0
+                                  ]
+                              }
+                          }
+                      ]
+                  }
+              ]
+          },
+          "DetailsTabListItem": {
+              "type": "Group",
+              "children": [
+                  {
+                      "type": "OvyLayoutGroup",
+                      "fields": {
+                          "translation": [
+                              0,
+                              0
+                          ],
+                          "itemSpacings": [
+                              10
+                          ],
+                          "layoutDirection": "vert"
+                      },
+                      "children": [
+                          {
+                              "type": "Label",
+                              "fields": {
+                                  "id": "itemText",
+                                  "font": "font:MediumSystemFont",
+                                  "text": "@content/labelText",
+                                  "wrap": false,
+                                  "width": "@content/width",
+                                  "height": "@content/height",
+                                  "vertAlign": "center",
+                                  "horizAlign": "center"
+                              }
+                          },
+                          {
+                              "type": "Rectangle",
+                              "fields": {
+                                  "id": "focusIndicator",
+                                  "width": "0",
+                                  "height": "10",
+                                  "opacity": "0",
+                                  "visible": true,
+                                  "translation": "[0,0]"
+                              }
+                          }
+                      ]
+                  }
+              ]
           }
-        ]
+      },
+      "strings": {
+          "de": {
+              "title": "Titel",
+              "description": "Beschreibung"
+          },
+          "en": {
+              "title": "Title",
+              "description": "Description"
+          },
+          "es": {
+              "title": "Título",
+              "description": "Descripción"
+          },
+          "fr": {
+              "title": "Titre",
+              "description": "La description"
+          }
       }
-    },
-    "strings": {
-      "de": {
-        "title": "Titel",
-        "description": "Beschreibung"
-      },
-      "en": {
-        "title": "Title",
-        "description": "Description"
-      },
-      "es": {
-        "title": "Título",
-        "description": "Descripción"
-      },
-      "fr": {
-        "title": "Titre",
-        "description": "La description"
-      }
-    }
   }
 }
