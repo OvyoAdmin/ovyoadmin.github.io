@@ -120,7 +120,7 @@
                                           "dataRes": "@data/home.carousel",
                                           "autoScroll": "true",
                                           "itemComponentName": "@layout/homeCarouselItem",
-                                          "indicatorPositionOffset": "[0, -64]"
+                                          "indicatorPositionOffset": "[0, -464]"
                                       }
                                   },
                                   {
